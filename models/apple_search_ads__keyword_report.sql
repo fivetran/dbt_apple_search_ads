@@ -23,14 +23,13 @@ with keyword_report as (
         ad_group.ad_group_name,
         keyword.keyword_id,
         keyword.keyword_text,
-        keyword.match_type,
         keyword_report.date_day,
+        keyword_report.currency,
         keyword_report.taps,
         keyword_report.new_downloads,
         keyword_report.redownloads,
         keyword_report.impressions,
-        keyword_report.local_spend_amount as spend,
-        keyword_report.local_spend_currency as currency
+        keyword_report.spend
     from keyword_report
     join keyword on keyword_report.keyword_id = keyword.keyword_id
     join ad_group on keyword.ad_group_id = ad_group.ad_group_id

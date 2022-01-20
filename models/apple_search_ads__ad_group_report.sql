@@ -19,12 +19,12 @@ with ad_group_report as (
         ad_group.ad_group_id,
         ad_group.ad_group_name,
         ad_group_report.date_day,
+        ad_group_report.currency,
         ad_group_report.taps,
         ad_group_report.new_downloads,
         ad_group_report.redownloads,
         ad_group_report.impressions,
-        ad_group_report.local_spend_amount as spend,
-        ad_group_report.local_spend_currency as currency
+        ad_group_report.spend
     from ad_group_report
     join ad_group on ad_group_report.ad_group_id = ad_group.ad_group_id
     join campaign on ad_group.campaign_id = campaign.campaign_id

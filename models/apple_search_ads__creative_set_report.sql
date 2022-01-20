@@ -18,17 +18,16 @@ with creative_set_report as (
         campaign.campaign_name, 
         ad_group.ad_group_id,
         ad_group.ad_group_name,
-        creative_set_report.creative_set_name,
+        creative_set_report.ad_format,
         creative_set_report.creative_set_id,
-        creative_set_report.created_at,
-        creative_set_report.display_status,
+        creative_set_report.creative_set_name,
         creative_set_report.date_day,
+        creative_set_report.currency,
         creative_set_report.taps,
         creative_set_report.new_downloads,
         creative_set_report.redownloads,
         creative_set_report.impressions,
-        creative_set_report.local_spend_amount as spend,
-        creative_set_report.local_spend_currency as currency
+        creative_set_report.spend
     from creative_set_report
     join ad_group on creative_set_report.ad_group_id = ad_group.ad_group_id
     join campaign on ad_group.campaign_id = campaign.campaign_id
