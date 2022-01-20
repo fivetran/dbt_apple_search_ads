@@ -16,10 +16,11 @@ vars:
     search_term_report: "{{ ref('stg_apple_search_ads__search_term_report') }}"
 
     apple_search_ads__using_search_terms: true
+    apple_search_ads__adapter: false ## placeholder for ad_reporting package
     
 models:
   apple_search_ads_source:
     materialized: table
-    +schema: int_apple_search_ads
+    +schema: apple_search_ads
     tmp:
       materialized: view

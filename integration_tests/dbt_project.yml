@@ -8,6 +8,7 @@ profile: 'integration_tests'
 vars:
   apple_search_ads_source:
     apple_search_ads__using_search_terms: true
+    apple_search_ads__adapter: false ## ad reporting ad adapter placeholder
     organization: "{{ ref('organization_data') }}"
     campaign_history: "{{ ref('campaign_history_data') }}"
     campaign_report: "{{ ref('campaign_report_data') }}"
