@@ -24,3 +24,30 @@ models:
     +schema: apple_search_ads
     tmp:
       materialized: view
+
+seeds:
+  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+  apple_search_ads_source_integration_tests:
+    +column_types:
+      _fivetran_synced: timestamp
+    ad_group_history_data: 
+      +column_types:
+        modification_time: timestamp
+        start_time: timestamp
+        end_time: timestamp
+    campaign_history_data:
+      +column_types:
+        modification_time: timestamp
+        start_time: timestamp
+        end_time: timestamp
+    keyword_history_data:
+      +column_types:
+        modification_time: timestamp
+    creative_set_report_data:
+      +column_types:
+        modification_time: timestamp
+        creation_time: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
