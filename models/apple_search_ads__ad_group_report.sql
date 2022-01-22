@@ -23,6 +23,7 @@ with ad_group_report as (
         ad_group_report.taps,
         ad_group_report.new_downloads,
         ad_group_report.redownloads,
+        (ad_group_report.new_downloads + ad_group_report.redownloads) as total_downloads,
         ad_group_report.impressions,
         ad_group_report.spend
     from ad_group_report

@@ -16,6 +16,7 @@ with campaign_report as (
         sum(campaign_report.taps) as taps,
         sum(campaign_report.new_downloads) as new_downloads,
         sum(campaign_report.redownloads) as redownloads,
+        sum(campaign_report.new_downloads + campaign_report.redownloads) as total_downloads,
         sum(campaign_report.impressions) as impressions,
         sum(campaign_report.spend) as spend
     from campaign_report

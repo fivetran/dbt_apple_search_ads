@@ -26,6 +26,7 @@ with creative_set_report as (
         creative_set_report.taps,
         creative_set_report.new_downloads,
         creative_set_report.redownloads,
+        (creative_set_report.new_downloads + creative_set_report.redownloads) as total_downloads,
         creative_set_report.impressions,
         creative_set_report.spend
     from creative_set_report

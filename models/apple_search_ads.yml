@@ -31,6 +31,8 @@ models:
         description: App downloads from new users who have never before installed app of ad group in a given day
       - name: redownloads
         description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day 
+      - name: total_downloads
+        description: The sum of new_downloads and redownloads
       - name: impressions
         description: The number of impressions of ad group in a given day
       - name: spend
@@ -62,6 +64,8 @@ models:
         description: App downloads from new users who have never before installed app of campaign in a given day
       - name: redownloads
         description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of campaign in a given day 
+      - name: total_downloads
+        description: The sum of new_downloads and redownloads
       - name: impressions
         description: The number of impressions of campaign in a given day
       - name: spend
@@ -107,6 +111,8 @@ models:
         description: App downloads from new users who have never before installed app of creative set in a given day
       - name: redownloads
         description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of creative set in a given day 
+      - name: total_downloads
+        description: The sum of new_downloads and redownloads
       - name: impressions
         description: The number of impressions of creative set in a given day
       - name: spend
@@ -148,6 +154,8 @@ models:
         description: App downloads from new users who have never before installed app of keyword in a given day
       - name: redownloads
         description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of keyword in a given day 
+      - name: total_downloads
+        description: The sum of new_downloads and redownloads
       - name: impressions
         description: The number of impressions of keyword in a given day
       - name: spend
@@ -175,6 +183,8 @@ models:
         description: App downloads from new users who have never before installed app of organization in a given day
       - name: redownloads
         description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day 
+      - name: total_downloads
+        description: The sum of new_downloads and redownloads
       - name: impressions
         description: The number of impressions of organization in a given day
       - name: spend
@@ -212,6 +222,8 @@ models:
         description: App downloads from new users who have never before installed app of organization in a given day
       - name: redownloads
         description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day 
+      - name: total_downloads
+        description: The sum of new_downloads and redownloads
       - name: impressions
         description: The number of impressions of organization in a given day
       - name: spend

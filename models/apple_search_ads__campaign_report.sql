@@ -18,6 +18,7 @@ with campaign_report as (
         campaign_report.taps,
         campaign_report.new_downloads,
         campaign_report.redownloads,
+        (campaign_report.new_downloads + campaign_report.redownloads) as total_downloads,
         campaign_report.impressions,
         campaign_report.spend
     from campaign_report

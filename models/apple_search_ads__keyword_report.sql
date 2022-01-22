@@ -28,6 +28,7 @@ with keyword_report as (
         keyword_report.taps,
         keyword_report.new_downloads,
         keyword_report.redownloads,
+        (keyword_report.new_downloads + keyword_report.redownloads) as total_downloads,
         keyword_report.impressions,
         keyword_report.spend
     from keyword_report
