@@ -21,17 +21,3 @@ models:
           tests: 
             - unique
             - not_null
-            
-    - name: int_apple_search_ads__most_recent_creative_set
-      tests:
-        - dbt_utils.unique_combination_of_columns:
-            combination_of_columns:
-              - _fivetran_id
-              - date_day
-      columns:
-        - name: _fivetran_id
-          tests:
-            - not_null
-        - name: date_day
-          tests:
-            - not_null

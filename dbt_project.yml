@@ -22,3 +22,5 @@ models:
   apple_search_ads:
     materialized: table
     +schema: apple_search_ads
+    intermediate:
+      +materialized: ephemeral
