@@ -1,3 +1,4 @@
+--
 with base as (
     select * 
     from {{ var('creative_set_report') }}
