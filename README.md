@@ -7,12 +7,12 @@ This package contains transformation models, designed to work simultaneously wit
 
 | **model**                    | **description**                                                                                                        |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| apple_search_ads__organization_report        | Each record represents the daily ad performance of each organization |
-| apple_search_ads__campaign_report        | Each record represents the daily ad performance of each campaign |
-| apple_search_ads__ad_group_report     | Each record represents the daily ad performance of each ad group |
-| apple_search_ads__keyword_report    | Each record represents the daily ad performance of each keyword |
-| apple_search_ads__search_term_report    | Each record represents the daily ad performance of each search term |
-| apple_search_ads__creative_set_report    | Each record represents the daily ad performance of each creative set |
+| apple_search_ads__organization_report        | Each record represents the daily ad performance of each organization. |
+| apple_search_ads__campaign_report        | Each record represents the daily ad performance of each campaign. |
+| apple_search_ads__ad_group_report     | Each record represents the daily ad performance of each ad group. |
+| apple_search_ads__keyword_report    | Each record represents the daily ad performance of each keyword. |
+| apple_search_ads__search_term_report    | Each record represents the daily ad performance of each search term. |
+| apple_search_ads__creative_set_report    | Each record represents the daily ad performance of each creative set. |
 
 ## Installation Instructions
 
@@ -28,7 +28,7 @@ packages:
 
 ## Configuration
 
-By default, this package will look for your Apple Search Ads data in the `apple_search_ads` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Apple Search Ads data is, please add the following configuration to your 
+By default, this package will look for your Apple Search Ads data in the `apple_search_ads` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Apple Search Ads data is, add the following configuration to your 
 `dbt_project.yml` file:
 
 ```yml
@@ -45,7 +45,7 @@ vars:
 For additional configurations for the source models, visit the [Apple Search Ads source package](https://github.com/fivetran/dbt_apple_search_ads_source).
 
 
-### Changing the Build Schema
+### Change the Build Schema
 
 By default, this package will build the Apple Search Ads staging models within a schema titled (`<target_schema>` + `_stg_apple_search_ads`) and the final Apple Search Ads models within a schema titled (`<target_schema>` + `_apple_search_ads`) in your target database. If this is not where you would like your modeled Apple Search Ads data to be written to, add the following configuration to your `dbt_project.yml` file:
 
@@ -66,10 +66,10 @@ Please create issues or open PRs against `master`. See [the Discourse post](http
 
 ## Database Support
 
-This package has been tested on BigQuery, Snowflake, Redshift, Postgres, and Databricks.
+This package has been tested on BigQuery, Snowflake, Redshift, PostgreSQL, and Databricks.
 
 ### Databricks Dispatch Configuration
-dbt `v0.20.0` introduced a new project-level dispatch configuration that enables an "override" setting for all dispatched macros. If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+dbt `v0.20.0` introduced a new project-level dispatch configuration that enables an "override" setting for all dispatched macros. If you are using a Databricks destination with this package, you will need to add the dispatch configuration below (or a variation of that configuration) within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
 ```yml
 # dbt_project.yml
 
