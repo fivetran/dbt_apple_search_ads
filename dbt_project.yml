@@ -12,7 +12,6 @@ vars:
     ad_group_report: "{{ ref('stg_apple_search_ads__ad_group_report') }}"
     keyword_history: "{{ ref('stg_apple_search_ads__keyword_history') }}"
     keyword_report: "{{ ref('stg_apple_search_ads__keyword_report') }}"
-    creative_set_report: "{{ ref('stg_apple_search_ads__creative_set_report') }}"
     search_term_report: "{{ ref('stg_apple_search_ads__search_term_report') }}"
 
     apple_search_ads__using_search_terms: true
