@@ -4,18 +4,22 @@ with search_term_report as (
 
     select *
     from {{ var('search_term_report') }}
+), 
 
-), campaign as (
+campaign as (
 
     select *
-    from {{ ref('int_apple_search_ads__most_recent_campaign') }}
+    from {{ var('campaign_history') }}
+    where is_most_recent_record = True
+), 
 
-), organization as (
+organization as (
 
     select * 
     from {{ var('organization') }}
+), 
 
-), joined as (
+joined as (
 
     select 
         search_term_report.date_day,
@@ -40,7 +44,6 @@ with search_term_report as (
         on campaign.organization_id = organization.organization_id
     where search_term_report.search_term_text is not null
     {{ dbt_utils.group_by(9) }}
-
 )
 
 select * 

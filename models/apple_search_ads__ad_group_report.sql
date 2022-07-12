@@ -2,23 +2,29 @@ with ad_group_report as (
 
     select *
     from {{ var('ad_group_report') }}
+), 
 
-), ad_group as (
+ad_group as (
 
     select * 
-    from {{ ref('int_apple_search_ads__most_recent_ad_group') }}
+    from {{ var('ad_group_history') }}
+    where is_most_recent_record = True
+), 
 
-), campaign as (
+campaign as (
 
     select *
-    from {{ ref('int_apple_search_ads__most_recent_campaign') }}
+    from {{ var('campaign_history') }}
+    where is_most_recent_record = True
+), 
 
-), organization as (
+organization as (
 
     select * 
     from {{ var('organization') }}
+), 
 
-), joined as (
+joined as (
 
     select 
         ad_group_report.date_day,
@@ -42,7 +48,6 @@ with ad_group_report as (
         on ad_group.campaign_id = campaign.campaign_id
     join organization 
         on ad_group.organization_id = organization.organization_id
-
 )
 
 select * 

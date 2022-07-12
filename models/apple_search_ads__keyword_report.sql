@@ -2,28 +2,36 @@ with keyword_report as (
 
     select *
     from {{ var('keyword_report') }}
+), 
 
-), keyword as (
-
-    select *
-    from {{ ref('int_apple_search_ads__most_recent_keyword') }}
-
-), ad_group as (
-
-    select * 
-    from {{ ref('int_apple_search_ads__most_recent_ad_group') }}
-
-), campaign as (
+keyword as (
 
     select *
-    from {{ ref('int_apple_search_ads__most_recent_campaign') }}
+    from {{ var('keyword_history') }}
+    where is_most_recent_record = True
+), 
 
-), organization as (
+ad_group as (
+
+    select *
+    from {{ var('ad_group_history') }}
+    where is_most_recent_record = True
+), 
+
+campaign as (
+
+    select *
+    from {{ var('campaign_history') }}
+    where is_most_recent_record = True
+), 
+
+organization as (
 
     select * 
     from {{ var('organization') }}
+), 
 
-), joined as (
+joined as (
 
     select 
         keyword_report.date_day,
@@ -51,7 +59,6 @@ with keyword_report as (
         on ad_group.campaign_id = campaign.campaign_id
     join organization 
         on ad_group.organization_id = organization.organization_id
-
 )
 
 select * 

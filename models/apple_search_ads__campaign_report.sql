@@ -3,17 +3,23 @@ with campaign_report as (
     select *
     from {{ var('campaign_report') }}
 
-), campaign as (
+), 
+
+campaign as (
 
     select *
-    from {{ ref('int_apple_search_ads__most_recent_campaign') }}
+    from {{ var('campaign_history') }}
+    where is_most_recent_record = True
+), 
 
-), organization as (
+organization as (
 
     select * 
     from {{ var('organization') }}
 
-), joined as (
+), 
+
+joined as (
 
     select 
         campaign_report.date_day,
@@ -33,7 +39,6 @@ with campaign_report as (
         on campaign_report.campaign_id = campaign.campaign_id
     join organization 
         on campaign.organization_id = organization.organization_id
-
 )
 
 select * 

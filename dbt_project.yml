@@ -14,12 +14,14 @@ vars:
     keyword_report: "{{ ref('stg_apple_search_ads__keyword_report') }}"
     search_term_report: "{{ ref('stg_apple_search_ads__search_term_report') }}"
 
-    apple_search_ads__using_search_terms: true
-    apple_search_ads__adapter: false ## placeholder for ad_reporting package
-    
+  apple_search_ads__using_search_terms: true
+  
+  apple_search_ads__ad_group_passthrough_metrics: []
+  apple_search_ads__campaign_passthrough_metrics: []
+  apple_search_ads__keyword_passthrough_metrics: [] 
+  apple_search_ads__search_term_passthrough_metrics: []
+
 models:
   apple_search_ads:
-    materialized: table
     +schema: apple_search_ads
-    intermediate:
-      +materialized: ephemeral
+    +materialized: table
