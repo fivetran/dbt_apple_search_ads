@@ -10,6 +10,8 @@ vars:
     campaign_report: "{{ ref('stg_apple_search_ads__campaign_report') }}"
     ad_group_history: "{{ ref('stg_apple_search_ads__ad_group_history') }}"
     ad_group_report: "{{ ref('stg_apple_search_ads__ad_group_report') }}"
+    ad_history: "{{ ref('stg_apple_search_ads__ad_history') }}"
+    ad_report: "{{ ref('stg_apple_search_ads__ad_report') }}"
     keyword_history: "{{ ref('stg_apple_search_ads__keyword_history') }}"
     keyword_report: "{{ ref('stg_apple_search_ads__keyword_report') }}"
     search_term_report: "{{ ref('stg_apple_search_ads__search_term_report') }}"

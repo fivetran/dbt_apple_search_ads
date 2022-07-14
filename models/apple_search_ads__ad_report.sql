@@ -1,9 +1,21 @@
-{{ config(enabled=var('apple_search_ads__using_search_terms', False)) }}
-
 with report as (
 
     select *
-    from {{ var('search_term_report') }}
+    from {{ var('ad_report') }}
+), 
+
+ad as (
+
+    select * 
+    from {{ var('ad_history') }}
+    where is_most_recent_record = True
+), 
+
+ad_group as (
+
+    select * 
+    from {{ var('ad_group_history') }}
+    where is_most_recent_record = True
 ), 
 
 campaign as (
@@ -27,9 +39,10 @@ joined as (
         organization.organization_name,
         campaign.campaign_id, 
         campaign.campaign_name, 
-        report.ad_group_id,
-        report.ad_group_name,
-        report.search_term_text,
+        ad_group.ad_group_id,
+        ad_group.ad_group_name,
+        ad.ad_id,
+        ad.ad_name,
         report.currency,
         sum(report.taps) as taps,
         sum(report.new_downloads) as new_downloads,
@@ -37,16 +50,19 @@ joined as (
         sum(report.new_downloads + report.redownloads) as total_downloads,
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
-        {% for metric in var('apple_search_ads__search_term_passthrough_metrics',[]) %}
+        {% for metric in var('apple_search_ads__ad_passthrough_metrics',[]) %}
         , sum(report.{{ metric }}) as {{ metric }}
         {% endfor %}
     from report
+    join ad 
+        on report.ad_id = ad.ad_id
+    join ad_group 
+        on report.ad_group_id = ad_group.ad_group_id
     join campaign 
         on report.campaign_id = campaign.campaign_id
     join organization 
-        on campaign.organization_id = organization.organization_id
-    where report.search_term_text is not null
-    {{ dbt_utils.group_by(9) }}
+        on ad.organization_id = organization.organization_id
+    {{ dbt_utils.group_by(10) }}
 )
 
 select * 

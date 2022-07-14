@@ -1,4 +1,4 @@
-with keyword_report as (
+with report as (
 
     select *
     from {{ var('keyword_report') }}
@@ -34,7 +34,7 @@ organization as (
 joined as (
 
     select 
-        keyword_report.date_day,
+        report.date_day,
         organization.organization_id,
         organization.organization_name,
         campaign.campaign_id, 
@@ -43,22 +43,26 @@ joined as (
         ad_group.ad_group_name,
         keyword.keyword_id,
         keyword.keyword_text,
-        keyword_report.currency,
-        keyword_report.taps,
-        keyword_report.new_downloads,
-        keyword_report.redownloads,
-        (keyword_report.new_downloads + keyword_report.redownloads) as total_downloads,
-        keyword_report.impressions,
-        keyword_report.spend
-    from keyword_report
+        report.currency,
+        sum(report.taps) as taps,
+        sum(report.new_downloads) as new_downloads,
+        sum(report.redownloads) as redownloads,
+        sum(report.new_downloads + report.redownloads) as total_downloads,
+        sum(report.impressions) as impressions,
+        sum(report.spend) as spend
+        {% for metric in var('apple_search_ads__keyword_passthrough_metrics',[]) %}
+        , sum(report.{{ metric }}) as {{ metric }}
+        {% endfor %}
+    from report
     join keyword 
-        on keyword_report.keyword_id = keyword.keyword_id
+        on report.keyword_id = keyword.keyword_id
     join ad_group 
         on keyword.ad_group_id = ad_group.ad_group_id
     join campaign 
         on ad_group.campaign_id = campaign.campaign_id
     join organization 
         on ad_group.organization_id = organization.organization_id
+    {{ dbt_utils.group_by(10) }}
 )
 
 select * 
