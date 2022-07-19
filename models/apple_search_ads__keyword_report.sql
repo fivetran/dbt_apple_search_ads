@@ -43,6 +43,7 @@ joined as (
         ad_group.ad_group_name,
         keyword.keyword_id,
         keyword.keyword_text,
+        keyword.match_type,
         report.currency,
         sum(report.taps) as taps,
         sum(report.new_downloads) as new_downloads,
@@ -62,7 +63,7 @@ joined as (
         on ad_group.campaign_id = campaign.campaign_id
     join organization 
         on ad_group.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(10) }}
+    {{ dbt_utils.group_by(11) }}
 )
 
 select * 

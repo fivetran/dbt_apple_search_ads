@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: apple_search_ads__ad_group_report
-    description: Each record represents the daily ad performance of each ad group
+    description: Each record represents the daily ad performance of each ad group.
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -10,36 +10,36 @@ models:
             - date_day
     columns:
       - name: organization_id
-        description: Organization ID associated with this record
+        description: Organization ID associated with this record.
       - name: organization_name
-        description: Organization name associated with this record
+        description: Organization name associated with this record.
       - name: campaign_id
-        description: Campaign ID associated with this record
+        description: Campaign ID associated with this record.
       - name: campaign_name 
-        description: Campaign name associated with this record
+        description: Campaign name associated with this record.
       - name: ad_group_id
-        description: Ad group ID associated with this record
+        description: Ad group ID associated with this record.
       - name: ad_group_name
-        description: Ad group name associated with this record
+        description: Ad group name associated with this record.
       - name: date_day
-        description: Date of the report
+        description: Date of the report.
       - name: currency
-        description: This currency value should match the respective organization's currency value
+        description: This currency value should match the respective organization's currency value.
       - name: taps
-        description: Number of taps on ad group on given day
+        description: Number of taps on ad group on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of ad group in a given day
+        description: App downloads from new users who have never before installed app of ad group in a given day.
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day.
       - name: total_downloads
-        description: The sum of new_downloads and redownloads
+        description: The sum of new_downloads and redownloads.
       - name: impressions
-        description: The number of impressions of ad group in a given day
+        description: The number of impressions of ad group in a given day.
       - name: spend
-        description: The spend on ad group in the given day
+        description: The spend on ad group in the given day.
 
   - name: apple_search_ads__ad_report
-    description: Each record represents the daily ad performance of each ad
+    description: Each record represents the daily ad performance of each ad.
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -47,40 +47,40 @@ models:
             - date_day
     columns:
       - name: organization_id
-        description: Organization ID associated with this record
+        description: Organization ID associated with this record.
       - name: organization_name
-        description: Organization name associated with this record
+        description: Organization name associated with this record.
       - name: campaign_id
-        description: Campaign ID associated with this record
+        description: Campaign ID associated with this record.
       - name: campaign_name 
-        description: Campaign name associated with this record
+        description: Campaign name associated with this record.
       - name: ad_group_id
-        description: Ad group ID associated with this record
+        description: Ad group ID associated with this record.
       - name: ad_group_name
-        description: Ad group name associated with this record
+        description: Ad group name associated with this record.
       - name: ad_id
-        description: Ad ID associated with this record
+        description: Ad ID associated with this record.
       - name: ad_name
-        description: Ad name associated with this record
+        description: Ad name associated with this record.
       - name: date_day
-        description: Date of the report
+        description: Date of the report.
       - name: currency
-        description: This currency value should match the respective organization's currency value
+        description: This currency value should match the respective organization's currency value.
       - name: taps
-        description: Number of taps on ad group on given day
+        description: Number of taps on ad group on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of ad group in a given day
+        description: App downloads from new users who have never before installed app of ad group in a given day.
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day.
       - name: total_downloads
-        description: The sum of new_downloads and redownloads
+        description: The sum of new_downloads and redownloads.
       - name: impressions
-        description: The number of impressions of ad group in a given day
+        description: The number of impressions of ad group in a given day.
       - name: spend
-        description: The spend on ad group in the given day
+        description: The spend on ad group in the given day.
 
   - name: apple_search_ads__campaign_report
-    description: Each record represents the daily ad performance of each campaign
+    description: Each record represents the daily ad performance of each campaign.
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -88,32 +88,32 @@ models:
             - date_day
     columns:
       - name: organization_id
-        description: Organization ID associated with this record
+        description: Organization ID associated with this record.
       - name: organization_name
-        description: Organization name associated with this record
+        description: Organization name associated with this record.
       - name: campaign_id
-        description: Campaign ID associated with this record
+        description: Campaign ID associated with this record.
       - name: campaign_name 
-        description: Campaign name associated with this record
+        description: Campaign name associated with this record.
       - name: date_day
-        description: Date of the report
+        description: Date of the report.
       - name: currency
-        description: This currency value should match the respective organization's currency value
+        description: This currency value should match the respective organization's currency value.
       - name: taps
-        description: Number of taps on campaign on given day
+        description: Number of taps on campaign on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of campaign in a given day
+        description: App downloads from new users who have never before installed app of campaign in a given day.
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of campaign in a given day 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of campaign in a given day.
       - name: total_downloads
-        description: The sum of new_downloads and redownloads
+        description: The sum of new_downloads and redownloads.
       - name: impressions
-        description: The number of impressions of campaign in a given day
+        description: The number of impressions of campaign in a given day.
       - name: spend
-        description: The spend on campaign in the given day
+        description: The spend on campaign in the given day.
 
   - name: apple_search_ads__keyword_report
-    description: Each record represents the daily ad performance of each creative set
+    description: Each record represents the daily ad performance of each creative set.
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -121,42 +121,42 @@ models:
             - date_day
     columns:
       - name: organization_id
-        description: Organization ID associated with this record
+        description: Organization ID associated with this record.
       - name: organization_name
-        description: Organization name associated with this record
+        description: Organization name associated with this record.
       - name: campaign_id
-        description: Campaign ID associated with this record
+        description: Campaign ID associated with this record.
       - name: campaign_name 
-        description: Campaign name associated with this record
+        description: Campaign name associated with this record.
       - name: ad_group_id
-        description: Ad group ID associated with this record
+        description: Ad group ID associated with this record.
       - name: ad_group_name
-        description: Ad group name associated with this record
+        description: Ad group name associated with this record.
       - name: kewyord_id
-        description: Creative set name associatd with this record
+        description: Creative set name associatd with this record.
       - name: keyword_text
-        description: Creative set ID associated with this record
+        description: Creative set ID associated with this record.
       - name: created_at
-        description: Creation date of the creative set 
+        description: Creation date of the creative set.
       - name: date_day
-        description: Date of the report
+        description: Date of the report.
       - name: currency
-        description: This currency value should match the respective organization's currency value
+        description: This currency value should match the respective organization's currency value.
       - name: taps
-        description: Number of taps on keyword on given day
+        description: Number of taps on keyword on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of keyword in a given day
+        description: App downloads from new users who have never before installed app of keyword in a given day.
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of keyword in a given day 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of keyword in a given day. 
       - name: total_downloads
-        description: The sum of new_downloads and redownloads
+        description: The sum of new_downloads and redownloads.
       - name: impressions
-        description: The number of impressions of keyword in a given day
+        description: The number of impressions of keyword in a given day.
       - name: spend
-        description: The spend on keyword in the given day
+        description: The spend on keyword in the given day.
 
   - name: apple_search_ads__organization_report
-    description: Each record represents the daily ad performance of each organization
+    description: Each record represents the daily ad performance of each organization.
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -164,28 +164,28 @@ models:
             - date_day
     columns:
       - name: organization_id
-        description: Organization ID associated with this record
+        description: Organization ID associated with this record.
       - name: organization_name
-        description: Organization name associated with this record
+        description: Organization name associated with this record.
       - name: date_day
-        description: Date of the report
+        description: Date of the report.
       - name: currency
-        description: This currency value should match the respective organization's currency value
+        description: This currency value should match the respective organization's currency value.
       - name: taps
-        description: Number of taps on organization on given day
+        description: Number of taps on organization on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of organization in a given day
+        description: App downloads from new users who have never before installed app of organization in a given day.
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day.
       - name: total_downloads
-        description: The sum of new_downloads and redownloads
+        description: The sum of new_downloads and redownloads.
       - name: impressions
-        description: The number of impressions of organization in a given day
+        description: The number of impressions of organization in a given day.
       - name: spend
-        description: The spend on organization in the given day  
+        description: The spend on organization in the given day.
   
   - name: apple_search_ads__search_term_report
-    description: Each record represents the daily ad performance of each search term, only includes records with search term values
+    description: Each record represents the daily ad performance of each search term, only includes records with search term values.
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -193,32 +193,32 @@ models:
             - date_day
     columns:
       - name: organization_id
-        description: Organization ID associated with this record
+        description: Organization ID associated with this record.
       - name: organization_name
-        description: Organization name associated with this record
+        description: Organization name associated with this record.
       - name: campaign_id
-        description: Campaign ID associated with this record
+        description: Campaign ID associated with this record.
       - name: campaign_name 
-        description: Campaign name associated with this record
+        description: Campaign name associated with this record.
       - name: ad_group_id
-        description: Ad group ID associated with this record
+        description: Ad group ID associated with this record.
       - name: ad_group_name
-        description: Ad group name associated with this record
+        description: Ad group name associated with this record.
       - name: date_day
-        description: Date of the report
+        description: Date of the report.
       - name: search_term_text
-        description: Search term text
+        description: Search term text.
       - name: currency
-        description: This currency value should match the respective organization's currency value
+        description: This currency value should match the respective organization's currency value.
       - name: taps
-        description: Number of taps on organization on given day
+        description: Number of taps on organization on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of organization in a given day
+        description: App downloads from new users who have never before installed app of organization in a given day.
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day.
       - name: total_downloads
-        description: The sum of new_downloads and redownloads
+        description: The sum of new_downloads and redownloads.
       - name: impressions
-        description: The number of impressions of organization in a given day
+        description: The number of impressions of organization in a given day.
       - name: spend
-        description: The spend on organization in the given day
+        description: The spend on organization in the given day.
