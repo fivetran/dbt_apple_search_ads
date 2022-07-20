@@ -6,23 +6,33 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - organization_id
+            - campaign_id
             - ad_group_id
             - date_day
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
+        tests:
+          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
+        tests:
+          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: ad_group_id
         description: Ad group ID associated with this record.
+        tests:
+          - not_null
       - name: ad_group_name
         description: Ad group name associated with this record.
       - name: date_day
         description: Date of the report.
+        tests:
+          - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
       - name: taps
@@ -43,27 +53,40 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - organization_id
+            - campaign_id
+            - ad_group_id
             - ad_id
             - date_day
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
+        tests:
+          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
+        tests:
+          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: ad_group_id
         description: Ad group ID associated with this record.
+        tests:
+          - not_null
       - name: ad_group_name
         description: Ad group name associated with this record.
       - name: ad_id
         description: Ad ID associated with this record.
+        tests:
+          - not_null
       - name: ad_name
         description: Ad name associated with this record.
       - name: date_day
         description: Date of the report.
+        tests:
+          - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
       - name: taps
@@ -84,19 +107,26 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - organization_id
             - campaign_id
             - date_day
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
+        tests:
+          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
+        tests:
+          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: date_day
         description: Date of the report.
+        tests:
+          - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
       - name: taps
@@ -117,29 +147,42 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - organization_id
+            - campaign_id
+            - ad_group_id
             - keyword_id
             - date_day
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
+        tests:
+          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
+        tests:
+          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: ad_group_id
         description: Ad group ID associated with this record.
+        tests:
+          - not_null
       - name: ad_group_name
         description: Ad group name associated with this record.
-      - name: kewyord_id
+      - name: keyword_id
         description: Creative set name associatd with this record.
+        tests:
+          - not_null
       - name: keyword_text
         description: Creative set ID associated with this record.
       - name: created_at
         description: Creation date of the creative set.
       - name: date_day
         description: Date of the report.
+        tests:
+          - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
       - name: taps
@@ -165,10 +208,14 @@ models:
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
+        tests:
+          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: date_day
         description: Date of the report.
+        tests:
+          - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
       - name: taps
@@ -206,8 +253,12 @@ models:
         description: Ad group name associated with this record.
       - name: date_day
         description: Date of the report.
+        tests:
+          - not_null
       - name: search_term_text
         description: Search term text.
+        tests:
+          - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
       - name: taps
