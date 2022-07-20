@@ -141,7 +141,7 @@ models:
         description: The number of impressions of campaign in a given day.
       - name: spend
         description: The spend on campaign in the given day.
-
+        
   - name: apple_search_ads__keyword_report
     description: Each record represents the daily ad performance of each creative set.
     tests: 
