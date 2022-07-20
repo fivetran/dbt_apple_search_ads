@@ -13,14 +13,10 @@ models:
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
-        tests:
-          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
-        tests:
-          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: ad_group_id
@@ -61,20 +57,14 @@ models:
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
-        tests:
-          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
-        tests:
-          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: ad_group_id
         description: Ad group ID associated with this record.
-        tests:
-          - not_null
       - name: ad_group_name
         description: Ad group name associated with this record.
       - name: ad_id
@@ -113,8 +103,6 @@ models:
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
-        tests:
-          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
@@ -155,20 +143,14 @@ models:
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
-        tests:
-          - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
-        tests:
-          - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
       - name: ad_group_id
         description: Ad group ID associated with this record.
-        tests:
-          - not_null
       - name: ad_group_name
         description: Ad group name associated with this record.
       - name: keyword_id
