@@ -2,3 +2,5 @@ packages:
   - git: https://github.com/fivetran/dbt_apple_search_ads_source.git
     revision: update/v2-updates
     warn-unpinned: false
+  # - local: ../dbt_apple_search_ads_source
+  

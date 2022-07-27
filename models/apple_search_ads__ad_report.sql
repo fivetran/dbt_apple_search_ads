@@ -50,9 +50,8 @@ joined as (
         sum(report.new_downloads + report.redownloads) as total_downloads,
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
-        {% for metric in var('apple_search_ads__ad_passthrough_metrics',[]) %}
-        , sum(report.{{ metric }}) as {{ metric }}
-        {% endfor %}
+
+        {{ fivetran_utils.persist_pass_through_columns(pass_through_variable='apple_search_ads__ad_passthrough_metrics', transform = 'sum') }}
     from report
     join ad 
         on report.ad_id = ad.ad_id
