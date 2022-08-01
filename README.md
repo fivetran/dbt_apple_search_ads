@@ -14,7 +14,7 @@
 # 📣 What does this dbt package do?
 - Produces modeled tables that leverage Apple Search Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/apple-search-ads) in the format described by [this ERD](https://fivetran.com/docs/applications/apple-search-ads#schemainformation) and builds off the output of our [Apple Search Ads source package](https://github.com/fivetran/dbt_apple_search_ads_source).
 - Enables you to better understand the performance of your ads across varying grains:
-  - Providing an account, campaign, ad group, keyword, ad, and utm level reports.
+  - Providing an organization, campaign, ad group, keyword, search term and ad level reports.
 - Materializes output models designed to work simultaneously with our [multi-platform Ad Reporting package](https://github.com/fivetran/dbt_ad_reporting).
 - Generates a comprehensive data dictionary of your source and modeled Apple Search Ads data through the [dbt docs site](https://fivetran.github.io/dbt_apple_search_ads/).
 
@@ -25,6 +25,7 @@ The following table provides a detailed list of all models materialized within t
 | [apple_search_ads__organization_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__organization_report)             | Each record in this table represents the daily performance at the organization level. |
 | [apple_search_ads__campaign_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__campaign_report)            | Each record in this table represents the daily performance of a campaign at the campaign/advertising_channel/advertising_channel_subtype level. |
 | [apple_search_ads__ad_group_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_group_report)            | Each record in this table represents the daily performance at the ad group level. |
+| [apple_search_ads__ad_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_report)            | Each record in this table represents the daily performance at the ad level. |
 | [apple_search_ads__keyword_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report)            | Each record in this table represents the daily performance at the ad group level for keywords. |
 | [apple_search_ads__search_term_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report)            | Each record in this table represents the daily performance at the ad group level for search term report. |
 
@@ -50,7 +51,7 @@ Include the following apple_search_ads package version in your `packages.yml` fi
 ```yaml
 packages:
   - package: fivetran/apple_search_ads
-    version: [">=0.8.0", "<0.9.0"]
+    version: [">=0.1.0", "<0.2.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `apple_search_ads` schema. If this is not where your Apple Search Ads data is (for example, if your Apple Search Ads schema is named `apple_search_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:

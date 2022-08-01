@@ -44,6 +44,7 @@ joined as (
         ad.ad_id,
         ad.ad_name,
         report.currency,
+        ad.ad_status,
         sum(report.taps) as taps,
         sum(report.new_downloads) as new_downloads,
         sum(report.redownloads) as redownloads,
@@ -61,7 +62,7 @@ joined as (
         on report.campaign_id = campaign.campaign_id
     join organization 
         on ad.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(10) }}
+    {{ dbt_utils.group_by(11) }}
 )
 
 select * 

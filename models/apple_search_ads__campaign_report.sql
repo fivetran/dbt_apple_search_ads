@@ -28,6 +28,9 @@ joined as (
         campaign.campaign_id, 
         campaign.campaign_name, 
         report.currency,
+        campaign.campaign_status,
+        campaign.start_at,
+        campaign.end_at,
         sum(report.taps) as taps,
         sum(report.new_downloads) as new_downloads,
         sum(report.redownloads) as redownloads,
@@ -41,7 +44,7 @@ joined as (
         on report.campaign_id = campaign.campaign_id
     join organization 
         on campaign.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(6) }}
+    {{ dbt_utils.group_by(9) }}
 )
 
 select * 
