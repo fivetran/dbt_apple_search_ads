@@ -48,7 +48,7 @@ joined as (
     join organization 
         on campaign.organization_id = organization.organization_id
     where report.search_term_text is not null
-    {{ dbt_utils.group_by(10) }}
+    {{ dbt_utils.group_by(12) }}
 )
 
 select * 
