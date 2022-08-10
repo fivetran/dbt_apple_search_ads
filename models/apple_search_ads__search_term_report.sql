@@ -29,6 +29,8 @@ joined as (
         campaign.campaign_name, 
         report.ad_group_id,
         report.ad_group_name,
+        report.keyword_id,
+        report.keyword_text,
         report.search_term_text,
         report.match_type,
         report.currency,
