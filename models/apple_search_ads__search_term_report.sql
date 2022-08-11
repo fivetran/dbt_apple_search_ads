@@ -29,6 +29,8 @@ joined as (
         campaign.campaign_name, 
         report.ad_group_id,
         report.ad_group_name,
+        report.keyword_id,
+        report.keyword_text,
         report.search_term_text,
         report.match_type,
         report.currency,
@@ -46,7 +48,7 @@ joined as (
     join organization 
         on campaign.organization_id = organization.organization_id
     where report.search_term_text is not null
-    {{ dbt_utils.group_by(10) }}
+    {{ dbt_utils.group_by(12) }}
 )
 
 select * 
