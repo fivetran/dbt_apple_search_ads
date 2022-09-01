@@ -64,6 +64,8 @@ vars:
 
 ## (Optional) Step 4: Additional configurations
 
+<details><summary>Expand for configurations</summary>
+
 ### Adding passthrough metrics
 By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
 
@@ -87,8 +89,8 @@ vars:
         alias: "another_id"
 ```
 
-### Enabling Addiitonal Models
-It's possible that your Apple Search Ads connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Apple Search Ads or actively excluded some tables from your syncs. To enable the corresponding functionality in the package, you must add the relevant variables. By default, the package assumes that all variables are false. Add variables for only the tables you want to enable. 
+### Disabling Additional Models
+It's possible that your Apple Search Ads connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Apple Search Ads or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, the package assumes that all variables are true. Add variables for only the tables you want to disable. 
 
 The `apple_search_ads__using_search_terms` variable below refers to the `search_terms_report` table. You must enable the [search match](https://searchads.apple.com/help/campaigns/0006-understand-search-match) function within each ad group to populate this table with data. 
 
@@ -99,7 +101,7 @@ The `apple_search_ads__using_search_terms` variable below refers to the `search_
 config-version: 2
 
 vars:
-  apple_search_ads__using_search_terms: true # enable if you want to include the search_term_report table and want search_term_report related metrics reported
+  apple_search_ads__using_search_terms: False # by default this is True
 ```
 
 ### Change the build schema
@@ -123,9 +125,14 @@ vars:
     apple_search_ads_<default_source_table_name>_identifier: your_table_name 
 ```
 
-## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™    
+</details>
+
+## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™  
+<details><summary>Expand for more details</summary>
+
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
 
+</details>
 
 # 🔍 Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
