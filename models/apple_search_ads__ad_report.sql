@@ -3,19 +3,19 @@
 with report as (
 
     select *
-    from {{ var('keyword_report') }}
+    from {{ var('ad_report') }}
 ), 
 
-keyword as (
+ad as (
 
-    select *
-    from {{ var('keyword_history') }}
+    select * 
+    from {{ var('ad_history') }}
     where is_most_recent_record = True
 ), 
 
 ad_group as (
 
-    select *
+    select * 
     from {{ var('ad_group_history') }}
     where is_most_recent_record = True
 ), 
@@ -43,11 +43,10 @@ joined as (
         campaign.campaign_name, 
         ad_group.ad_group_id,
         ad_group.ad_group_name,
-        keyword.keyword_id,
-        keyword.keyword_text,
-        keyword.match_type,
+        ad.ad_id,
+        ad.ad_name,
         report.currency,
-        keyword.keyword_status,
+        ad.ad_status,
         sum(report.taps) as taps,
         sum(report.new_downloads) as new_downloads,
         sum(report.redownloads) as redownloads,
@@ -55,17 +54,17 @@ joined as (
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
 
-        {{ fivetran_utils.persist_pass_through_columns(pass_through_variable='apple_search_ads__keyword_passthrough_metrics', transform = 'sum') }}
+        {{ fivetran_utils.persist_pass_through_columns(pass_through_variable='apple_search_ads__ad_passthrough_metrics', transform = 'sum') }}
     from report
-    join keyword 
-        on report.keyword_id = keyword.keyword_id
+    join ad 
+        on report.ad_id = ad.ad_id
     join ad_group 
-        on keyword.ad_group_id = ad_group.ad_group_id
+        on report.ad_group_id = ad_group.ad_group_id
     join campaign 
-        on ad_group.campaign_id = campaign.campaign_id
+        on report.campaign_id = campaign.campaign_id
     join organization 
-        on ad_group.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(12) }}
+        on ad.organization_id = organization.organization_id
+    {{ dbt_utils.group_by(11) }}
 )
 
 select * 

@@ -1,38 +1,45 @@
-with campaign_report as (
+{{ config(enabled=var('ad_reporting__apple_search_ads_enabled', True)) }}
+
+with report as (
     
     select *
     from {{ var('campaign_report') }}
+), 
 
-), campaign as (
+campaign as (
 
     select *
-    from {{ ref('int_apple_search_ads__most_recent_campaign') }}
+    from {{ var('campaign_history') }}
+    where is_most_recent_record = True
+), 
 
-), organization as (
+organization as (
 
     select * 
     from {{ var('organization') }}
+), 
 
-), joined as (
+joined as (
 
     select 
-        campaign_report.date_day,
+        report.date_day,
         organization.organization_id,
         organization.organization_name,
         organization.currency,
-        sum(campaign_report.taps) as taps,
-        sum(campaign_report.new_downloads) as new_downloads,
-        sum(campaign_report.redownloads) as redownloads,
-        sum(campaign_report.new_downloads + campaign_report.redownloads) as total_downloads,
-        sum(campaign_report.impressions) as impressions,
-        sum(campaign_report.spend) as spend
-    from campaign_report
+        sum(report.taps) as taps,
+        sum(report.new_downloads) as new_downloads,
+        sum(report.redownloads) as redownloads,
+        sum(report.new_downloads + report.redownloads) as total_downloads,
+        sum(report.impressions) as impressions,
+        sum(report.spend) as spend
+
+        {{ fivetran_utils.persist_pass_through_columns(pass_through_variable='apple_search_ads__campaign_passthrough_metrics', transform = 'sum') }}
+    from report
     join campaign 
-        on campaign_report.campaign_id = campaign.campaign_id
+        on report.campaign_id = campaign.campaign_id
     join organization 
         on campaign.organization_id = organization.organization_id
     {{ dbt_utils.group_by(4) }}
-
 )
 
 select * 

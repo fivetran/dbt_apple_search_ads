@@ -1,48 +1,61 @@
-with ad_group_report as (
+{{ config(enabled=var('ad_reporting__apple_search_ads_enabled', True)) }}
+
+with report as (
 
     select *
     from {{ var('ad_group_report') }}
+), 
 
-), ad_group as (
+ad_group as (
 
     select * 
-    from {{ ref('int_apple_search_ads__most_recent_ad_group') }}
+    from {{ var('ad_group_history') }}
+    where is_most_recent_record = True
+), 
 
-), campaign as (
+campaign as (
 
     select *
-    from {{ ref('int_apple_search_ads__most_recent_campaign') }}
+    from {{ var('campaign_history') }}
+    where is_most_recent_record = True
+), 
 
-), organization as (
+organization as (
 
     select * 
     from {{ var('organization') }}
+), 
 
-), joined as (
+joined as (
 
     select 
-        ad_group_report.date_day,
+        report.date_day,
         organization.organization_id,
         organization.organization_name,
         campaign.campaign_id, 
         campaign.campaign_name, 
         ad_group.ad_group_id,
         ad_group.ad_group_name,
-        ad_group_report.currency,
-        ad_group_report.taps,
-        ad_group_report.new_downloads,
-        ad_group_report.redownloads,
-        (ad_group_report.new_downloads + ad_group_report.redownloads) as total_downloads,
-        ad_group_report.impressions,
-        ad_group_report.spend
-    from ad_group_report
+        report.currency,
+        ad_group.ad_group_status,
+        ad_group.start_at, 
+        ad_group.end_at,
+        sum(report.taps) as taps,
+        sum(report.new_downloads) as new_downloads,
+        sum(report.redownloads) as redownloads,
+        sum(report.new_downloads + report.redownloads) as total_downloads,
+        sum(report.impressions) as impressions,
+        sum(report.spend) as spend
+
+        {{ fivetran_utils.persist_pass_through_columns(pass_through_variable='apple_search_ads__ad_group_passthrough_metrics', transform = 'sum') }}
+    from report
     join ad_group 
-        on ad_group_report.ad_group_id = ad_group.ad_group_id
+        on report.ad_group_id = ad_group.ad_group_id
     join campaign 
         on ad_group.campaign_id = campaign.campaign_id
     join organization 
         on ad_group.organization_id = organization.organization_id
-
+    {{ dbt_utils.group_by(11) }}
 )
 
 select * 
