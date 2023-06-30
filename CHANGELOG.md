@@ -47,3 +47,6 @@
 
 ## Initial Release
 - This is the initial release of this package. For more information refer to the [README](/README.md).
+
+## bugfix #[#16](https://github.com/fivetran/dbt_apple_search_ads/issues/16)
+- Added additional columns in dbt_utils.unique_combination_of_columns test for apple_search_ads__search_term_report as we can run multiple keyword_id,ad_group_id and campaign_id for the same search_term_text & date_day
