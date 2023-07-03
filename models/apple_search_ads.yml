@@ -236,6 +236,9 @@ models:
           combination_of_columns:
             - search_term_text
             - date_day
+            - keyword_id
+            - ad_group_id
+            - campaign_id
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
