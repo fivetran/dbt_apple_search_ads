@@ -1,9 +1,22 @@
-# dbt_apple_search_ads v0.UPDATE.UPDATE
+# dbt_apple_search_ads v0.2.1
+## Bugfix:
+- Added the following additional columns in dbt_utils.unique_combination_of_columns test for `apple_search_ads__search_term_report`  ([PR #18](https://github.com/fivetran/dbt_apple_search_ads/pull/18)):
 
- ## Under the Hood:
+        - keyword_id
+        - ad_group_id
+        - campaign_id
+        - organization_id
+        - match_type
 
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
+## Under the Hood:
+
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([PR #15](https://github.com/fivetran/dbt_apple_search_ads/pull/15))
+- Updated the pull request [templates](/.github). ([PR #15](https://github.com/fivetran/dbt_apple_search_ads/pull/15))
+
+## Contributors:
+
+- [@yuna-tang](https://github.com/yuna-tang) ([PR #17](https://github.com/fivetran/dbt_apple_search_ads/pull/17))
+
 # dbt_apple_search_ads v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
@@ -47,6 +60,3 @@
 
 ## Initial Release
 - This is the initial release of this package. For more information refer to the [README](/README.md).
-
-## bugfix #[#16](https://github.com/fivetran/dbt_apple_search_ads/issues/16)
-- Added additional columns in dbt_utils.unique_combination_of_columns test for apple_search_ads__search_term_report as we can run multiple keyword_id,ad_group_id and campaign_id for the same search_term_text & date_day

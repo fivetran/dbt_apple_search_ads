@@ -235,10 +235,12 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - search_term_text
+            - match_type
             - date_day
             - keyword_id
             - ad_group_id
             - campaign_id
+            - organization_id
     columns:
       - name: organization_id
         description: Organization ID associated with this record.
