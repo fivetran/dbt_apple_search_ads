@@ -1,7 +1,8 @@
 # dbt_apple_search_ads v0.2.1
 ## Bugfix:
-- Added the following additional columns in dbt_utils.unique_combination_of_columns test for `apple_search_ads__search_term_report`  ([PR #18](https://github.com/fivetran/dbt_apple_search_ads/pull/18)):
-
+- Updated the dbt_utils.unique_combination_of_columns test for the `apple_search_ads__search_term_report` to include the following fields. ([PR #18](https://github.com/fivetran/dbt_apple_search_ads/pull/18)):
+        - date_day
+        - search_term_text
         - keyword_id
         - ad_group_id
         - campaign_id
