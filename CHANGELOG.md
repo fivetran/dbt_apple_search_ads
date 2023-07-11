@@ -1,4 +1,4 @@
-# dbt_apple_search_ads v0.2.1
+# dbt_apple_search_ads v0.2.2
 ## Bugfix:
 - Updated the dbt_utils.unique_combination_of_columns test for the `apple_search_ads__search_term_report` to include the following fields. ([PR #18](https://github.com/fivetran/dbt_apple_search_ads/pull/18)):
         - date_day
@@ -17,6 +17,12 @@
 ## Contributors:
 
 - [@yuna-tang](https://github.com/yuna-tang) ([PR #17](https://github.com/fivetran/dbt_apple_search_ads/pull/17))
+
+
+
+# dbt_apple_search_ads v0.2.1
+
+Accidental Release
 
 # dbt_apple_search_ads v0.2.0
 
