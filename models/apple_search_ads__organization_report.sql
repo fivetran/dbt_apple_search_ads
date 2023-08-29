@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('ad_reporting__apple_search_ads_enabled', True)) }}
 
 with report as (
@@ -22,6 +24,7 @@ organization as (
 joined as (
 
     select 
+        report.source_relation,
         report.date_day,
         organization.organization_id,
         organization.organization_name,
@@ -39,7 +42,7 @@ joined as (
         on report.campaign_id = campaign.campaign_id
     join organization 
         on campaign.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(4) }}
+    {{ dbt_utils.group_by(5) }}
 )
 
 select * 

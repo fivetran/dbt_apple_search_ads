@@ -1,3 +1,4 @@
+UPDATE TESTS AND CHECK SOURCE_RELATION ADDED PROPERLY!!! (delete line when done.)
 version: 2
 
 models:
@@ -6,11 +7,14 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - organization_id
             - campaign_id
             - ad_group_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
       - name: organization_name
@@ -55,12 +59,15 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - organization_id
             - campaign_id
             - ad_group_id
             - ad_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
       - name: organization_name
@@ -105,10 +112,13 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - organization_id
             - campaign_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
       - name: organization_name
@@ -149,12 +159,15 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - organization_id
             - campaign_id
             - ad_group_id
             - keyword_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
       - name: organization_name
@@ -201,9 +214,12 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - organization_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
         tests:
@@ -234,6 +250,7 @@ models:
     tests: 
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - search_term_text
             - match_type
             - date_day
@@ -242,6 +259,8 @@ models:
             - campaign_id
             - organization_id
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
       - name: organization_name
