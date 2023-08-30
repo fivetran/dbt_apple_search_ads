@@ -1,5 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
 {{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__apple_search_ads_enabled','apple_search_ads__using_search_terms'])) }}
 
 with report as (
@@ -48,8 +46,10 @@ joined as (
     from report
     join campaign 
         on report.campaign_id = campaign.campaign_id
+        and report.source_relation = campaign.source_relation
     join organization 
         on campaign.organization_id = organization.organization_id
+        and campaign.source_relation = organization.source_relation
     where report.search_term_text is not null
     {{ dbt_utils.group_by(13) }}
 )

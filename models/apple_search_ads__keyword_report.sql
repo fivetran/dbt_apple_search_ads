@@ -1,5 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
 {{ config(enabled=var('ad_reporting__apple_search_ads_enabled', True)) }}
 
 with report as (
@@ -62,12 +60,16 @@ joined as (
     from report
     join keyword 
         on report.keyword_id = keyword.keyword_id
+        and report.source_relation = keyword.source_relation
     join ad_group 
         on keyword.ad_group_id = ad_group.ad_group_id
+        and keyword.source_relation = ad_group.source_relation
     join campaign 
         on ad_group.campaign_id = campaign.campaign_id
+        and ad_group.source_relation = campaign.source_relation
     join organization 
         on ad_group.organization_id = organization.organization_id
+        and ad_group.source_relation = organization.source_relation
     {{ dbt_utils.group_by(13) }}
 )
 
