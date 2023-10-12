@@ -36,6 +36,7 @@ organization as (
 joined as (
 
     select 
+        report.source_relation,
         report.date_day,
         organization.organization_id,
         organization.organization_name,
@@ -59,13 +60,17 @@ joined as (
     from report
     join keyword 
         on report.keyword_id = keyword.keyword_id
+        and report.source_relation = keyword.source_relation
     join ad_group 
         on keyword.ad_group_id = ad_group.ad_group_id
+        and keyword.source_relation = ad_group.source_relation
     join campaign 
         on ad_group.campaign_id = campaign.campaign_id
+        and ad_group.source_relation = campaign.source_relation
     join organization 
         on ad_group.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(12) }}
+        and ad_group.source_relation = organization.source_relation
+    {{ dbt_utils.group_by(13) }}
 )
 
 select * 

@@ -22,6 +22,7 @@ organization as (
 joined as (
 
     select 
+        report.source_relation,
         report.date_day,
         organization.organization_id,
         organization.organization_name,
@@ -37,9 +38,11 @@ joined as (
     from report
     join campaign 
         on report.campaign_id = campaign.campaign_id
+        and report.source_relation = campaign.source_relation
     join organization 
         on campaign.organization_id = organization.organization_id
-    {{ dbt_utils.group_by(4) }}
+        and campaign.source_relation = organization.source_relation
+    {{ dbt_utils.group_by(5) }}
 )
 
 select * 
