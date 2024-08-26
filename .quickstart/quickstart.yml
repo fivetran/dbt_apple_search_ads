@@ -12,3 +12,12 @@ destination_configurations:
     dispatch:
       - macro_namespace: dbt_utils
         search_order: [ 'spark_utils', 'dbt_utils' ]
+
+public_models: [
+  'apple_search_ads__ad_report',
+  'apple_search_ads__ad_group_report',
+  'apple_search_ads__keyword_report',
+  'apple_search_ads__search_term_report',
+  'apple_search_ads__campaign_report',
+  'apple_search_ads__organization_report'
+]
