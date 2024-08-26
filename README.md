@@ -14,13 +14,14 @@
 ## What does this dbt package do?
 - Produces modeled tables that leverage Apple Search Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/apple-search-ads) in the format described by [this ERD](https://fivetran.com/docs/applications/apple-search-ads#schemainformation) and builds off the output of our [Apple Search Ads source package](https://github.com/fivetran/dbt_apple_search_ads_source).
 - Enables you to better understand the performance of your ads across varying grains:
-- Providing an organization, campaign, ad group, keyword, search term and ad level reports.
+    - Providing an organization, campaign, ad group, keyword, search term and ad level reports.
 - Materializes output models designed to work simultaneously with our [multi-platform Ad Reporting package](https://github.com/fivetran/dbt_ad_reporting).
 - Generates a comprehensive data dictionary of your source and modeled Apple Search Ads data through the [dbt docs site](https://fivetran.github.io/dbt_apple_search_ads/).
 
+<!--section="apple_search_ads_transformation_model"-->
 The following table provides a detailed list of all models materialized within this package by default.
 
-| **Model**                | **Description**                                                                                                                                |
+| **Table**                | **Description**                                                                                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | [apple_search_ads__organization_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__organization_report)             | Each record in this table represents the daily performance at the organization level. |
 | [apple_search_ads__campaign_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__campaign_report)            | Each record in this table represents the daily performance of a campaign at the campaign/advertising_channel/advertising_channel_subtype level. |
@@ -28,6 +29,8 @@ The following table provides a detailed list of all models materialized within t
 | [apple_search_ads__ad_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_report)            | Each record in this table represents the daily performance at the ad level. |
 | [apple_search_ads__keyword_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report)            | Each record in this table represents the daily performance at the ad group level for keywords. |
 | [apple_search_ads__search_term_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report)            | Each record in this table represents the daily performance at the ad group level for search term report. |
+
+<!--section-end-->
 
 ## How do I use the dbt package?
 
