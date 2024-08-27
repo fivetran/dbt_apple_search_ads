@@ -19,7 +19,7 @@
 - Generates a comprehensive data dictionary of your source and modeled Apple Search Ads data through the [dbt docs site](https://fivetran.github.io/dbt_apple_search_ads/).
 
 <!--section="apple_search_ads_transformation_model"-->
-The following table provides a detailed list of all models materialized within this package by default.
+The following table provides a detailed list of all tables materialized within this package by default.
 
 | **Table**                | **Description**                                                                                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
