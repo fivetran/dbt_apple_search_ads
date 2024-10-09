@@ -45,6 +45,7 @@ joined as (
         sum(report.new_downloads) as new_downloads,
         sum(report.redownloads) as redownloads,
         sum(report.new_downloads + report.redownloads) as total_downloads,
+        sum(report.conversions) as conversions,
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
 
