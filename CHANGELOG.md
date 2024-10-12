@@ -1,3 +1,15 @@
+# dbt_apple_search_ads v0.4.0
+[PR #24](https://github.com/fivetran/dbt_apple_search_ads/pull/24) includes the following updates:
+
+## Feature Updates: Conversion Support
+- Added the `conversions` source field to each `apple_search_ads__*_report` model.
+- If you are already passing in these fields via the [passthrough columns](https://github.com/fivetran/dbt_apple_search_ads?tab=readme-ov-file#passing-through-additional-metrics), the package will automatically prevent "duplicate column" errors.
+> Breaking change: This update impacts users not previously including `conversions` via passthrough columns.
+
+## Under the Hood
+- Introduced the `apple_search_ads_persist_pass_through_columns` macro to maintain compatibility for users already passing conversion fields through passthrough columns.
+- Added validation tests for integrity and consistency of transformation models within the `integration_tests` folder (for maintainers only).
+
 # dbt_apple_search_ads v0.3.0
 [PR #20](https://github.com/fivetran/dbt_apple_search_ads/pull/20) includes the following updates:
 ## Feature update 🎉

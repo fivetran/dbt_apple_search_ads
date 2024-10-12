@@ -49,7 +49,13 @@ joined as (
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
 
-        {{ fivetran_utils.persist_pass_through_columns(pass_through_variable='apple_search_ads__ad_group_passthrough_metrics', transform = 'sum') }}
+        {{ apple_search_ads_persist_pass_through_columns(
+            pass_through_variable = 'apple_search_ads__ad_group_passthrough_metrics',
+            identifier = 'report',
+            transform = 'sum',
+            coalesce_with = 0,
+            exclude_fields = ['conversions', 'conversion_rate']) }}
+
     from report
     join ad_group 
         on report.ad_group_id = ad_group.ad_group_id

@@ -1,4 +1,4 @@
-{# Adapted from fivetran_utils.persist_pass_through_columns() macro to include exclusions and coalesces #}
+{# Adapted from apple_search_ads_persist_pass_through_columns() macro to include exclusions and coalesces #}
 
 {% macro apple_search_ads_persist_pass_through_columns(pass_through_variable, identifier=none, transform='', coalesce_with=none, exclude_fields=[]) %}
 

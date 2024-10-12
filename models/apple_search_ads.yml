@@ -49,7 +49,7 @@ models:
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: The number of attributed conversions, representing a valuable action taken by a user, such as an app install or purchase.
+        description: Total installs resulting from a view or a tap.
       - name: impressions
         description: The number of impressions of ad group in a given day.
       - name: spend
@@ -104,7 +104,7 @@ models:
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: The number of attributed conversions, representing a valuable action taken by a user, such as an app install or purchase.
+        description: Total installs resulting from a view or a tap.
       - name: impressions
         description: The number of impressions of ad group in a given day.
       - name: spend
@@ -153,7 +153,7 @@ models:
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: The number of attributed conversions, representing a valuable action taken by a user, such as an app install or purchase.
+        description: Total installs resulting from a view or a tap.
       - name: impressions
         description: The number of impressions of campaign in a given day.
       - name: spend
@@ -210,7 +210,7 @@ models:
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: The number of attributed conversions, representing a valuable action taken by a user, such as an app install or purchase.
+        description: Total installs resulting from a view or a tap.
       - name: impressions
         description: The number of impressions of keyword in a given day.
       - name: spend
@@ -248,7 +248,7 @@ models:
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: The number of attributed conversions, representing a valuable action taken by a user, such as an app install or purchase.
+        description: Total installs resulting from a view or a tap.
       - name: impressions
         description: The number of impressions of organization in a given day.
       - name: spend
@@ -303,7 +303,7 @@ models:
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: The number of attributed conversions, representing a valuable action taken by a user, such as an app install or purchase.
+        description: Total installs resulting from a view or a tap.
       - name: impressions
         description: The number of impressions of organization in a given day.
       - name: spend
