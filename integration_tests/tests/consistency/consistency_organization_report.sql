@@ -6,13 +6,13 @@
 
 with prod as (
     select
-        {{ dbt_utils.star(from=ref('apple_search_ads__organization_report'), except=var('consistency_test_exclude_metrics')) }}
+        {{ dbt_utils.star(from=ref('apple_search_ads__organization_report'), except=var('consistency_test_exclude_metrics', '[]')) }}
     from {{ target.schema }}_apple_search_ads_prod.apple_search_ads__organization_report
 ),
 
 dev as (
     select
-        {{ dbt_utils.star(from=ref('apple_search_ads__organization_report'), except=var('consistency_test_exclude_metrics')) }}
+        {{ dbt_utils.star(from=ref('apple_search_ads__organization_report'), except=var('consistency_test_exclude_metrics', '[]')) }}
     from {{ target.schema }}_apple_search_ads_dev.apple_search_ads__organization_report
 ),
 
