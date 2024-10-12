@@ -62,7 +62,7 @@ joined as (
             identifier = 'report',
             transform = 'sum',
             coalesce_with = 0,
-            exclude_fields = ['conversions', 'conversion_rate']) }}
+            exclude_fields = ['conversions']) }}
 
     from report
     join keyword 
