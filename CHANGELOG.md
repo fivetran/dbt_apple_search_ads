@@ -6,6 +6,8 @@
 - If you are already passing in these fields via the [passthrough columns](https://github.com/fivetran/dbt_apple_search_ads?tab=readme-ov-file#passing-through-additional-metrics), the package will automatically prevent "duplicate column" errors.
 > Breaking change: This update impacts users not previously including `conversions` via passthrough columns.
 
+- Since there is no direct `conversion_value` field available in Apple Search Ads data, added a `DECISIONLOG` entry discussing alternatives. See the [Conversion Value section](https://github.com/fivetran/dbt_apple_search_ads/blob/main/DECISIONLOG.md#conversion-value) for more details.
+
 ## Under the Hood
 - Introduced the `apple_search_ads_persist_pass_through_columns` macro to maintain compatibility for users already passing conversion fields through passthrough columns.
 - Added validation tests for integrity and consistency of transformation models within the `integration_tests` folder (for maintainers only).
