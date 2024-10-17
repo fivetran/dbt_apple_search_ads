@@ -308,3 +308,7 @@ models:
         description: The number of impressions of organization in a given day.
       - name: spend
         description: The spend on organization in the given day.
+      - name: keyword_id
+        description: Creative set name associatd with this record.
+      - name: keyword_text
+        description: Creative set ID associated with this record.

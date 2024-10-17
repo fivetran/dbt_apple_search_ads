@@ -1,5 +1,5 @@
 # dbt_apple_search_ads v0.4.0
-[PR #24](https://github.com/fivetran/dbt_apple_search_ads/pull/24) includes the following updates:
+[PR #24](https://github.com/fivetran/dbt_apple_search_ads/pull/24) includes the following **BREAKING CHANGE** updates:
 
 ## Feature Updates: Conversion Support
 - Added the `conversions` source field to each `apple_search_ads__*_report` model.
@@ -10,7 +10,11 @@
 
 ## Under the Hood
 - Introduced the `apple_search_ads_persist_pass_through_columns` macro to maintain compatibility for users already passing conversion fields through passthrough columns.
+  - This macro coalesces each passthrough metric with `0`.
 - Added validation tests for integrity and consistency of transformation models within the `integration_tests` folder (for maintainers only).
+
+## Documentation
+- Added missing column descriptions for `keyword_id` and `keyword_text` in the `apple_search_ads__search_term_report` model.
 
 # dbt_apple_search_ads v0.3.0
 [PR #20](https://github.com/fivetran/dbt_apple_search_ads/pull/20) includes the following updates:
