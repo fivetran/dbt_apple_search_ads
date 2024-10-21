@@ -26,10 +26,8 @@ vars:
     - name: conversions
       alias: conversions_alias_should_be_included
 
-  # consistency_test_exclude_metrics: ['conversions']
-
-# models:
-#   +schema: "apple_search_ads_{{ var('directed_schema','dev') }}"
+models:
+  +schema: "apple_search_ads_{{ var('directed_schema','dev') }}"
 
 seeds:
   +quote_columns: "{{ true if target.type == 'redshift' else false }}"
