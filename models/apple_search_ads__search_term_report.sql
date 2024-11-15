@@ -26,7 +26,7 @@ joined as (
         report.date_day,
         organization.organization_id,
         organization.organization_name,
-        campaign.campaign_id, 
+        report.campaign_id, 
         campaign.campaign_name, 
         report.ad_group_id,
         report.ad_group_name,
@@ -51,10 +51,10 @@ joined as (
             exclude_fields = ['conversions']) }}
 
     from report
-    join campaign 
+    left join campaign 
         on report.campaign_id = campaign.campaign_id
         and report.source_relation = campaign.source_relation
-    join organization 
+    left join organization 
         on campaign.organization_id = organization.organization_id
         and campaign.source_relation = organization.source_relation
     where report.search_term_text is not null

@@ -8,7 +8,6 @@ with ad_source as (
     select 
         sum(coalesce(conversions, 0)) as conversions
     from {{ target.schema }}_apple_search_ads_dev.stg_apple_search_ads__ad_report
-    where ad_id > 0
 ),
 
 ad_model as (
@@ -23,7 +22,6 @@ ad_group_source as (
     select 
         sum(coalesce(conversions, 0)) as conversions
     from {{ target.schema }}_apple_search_ads_dev.stg_apple_search_ads__ad_group_report
-    where ad_group_id > 0
 ),
 
 ad_group_model as (
@@ -38,7 +36,6 @@ campaign_source as (
     select 
         sum(coalesce(conversions, 0)) as conversions
     from {{ target.schema }}_apple_search_ads_dev.stg_apple_search_ads__campaign_report
-    where campaign_id > 0
 ),
 
 campaign_model as (
@@ -53,7 +50,6 @@ keyword_source as (
     select 
         sum(coalesce(conversions, 0)) as conversions
     from {{ target.schema }}_apple_search_ads_dev.stg_apple_search_ads__keyword_report
-    where keyword_id > 0
 ),
 
 keyword_model as (

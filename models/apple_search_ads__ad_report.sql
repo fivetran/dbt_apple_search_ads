@@ -40,11 +40,11 @@ joined as (
         report.date_day,
         organization.organization_id,
         organization.organization_name,
-        campaign.campaign_id, 
+        report.campaign_id, 
         campaign.campaign_name, 
-        ad_group.ad_group_id,
+        report.ad_group_id,
         ad_group.ad_group_name,
-        ad.ad_id,
+        report.ad_id,
         ad.ad_name,
         report.currency,
         ad.ad_status,
@@ -64,16 +64,16 @@ joined as (
             exclude_fields = ['conversions']) }}
 
     from report
-    join ad 
+    left join ad 
         on report.ad_id = ad.ad_id
         and report.source_relation = ad.source_relation
-    join ad_group 
+    left join ad_group 
         on report.ad_group_id = ad_group.ad_group_id
         and report.source_relation = ad_group.source_relation
-    join campaign 
+    left join campaign 
         on report.campaign_id = campaign.campaign_id
         and report.source_relation = campaign.source_relation
-    join organization 
+    left join organization 
         on ad.organization_id = organization.organization_id
         and ad.source_relation = organization.source_relation
     {{ dbt_utils.group_by(12) }}

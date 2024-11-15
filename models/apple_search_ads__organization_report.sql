@@ -43,10 +43,10 @@ joined as (
             exclude_fields = ['conversions']) }}
 
     from report
-    join campaign 
+    left join campaign 
         on report.campaign_id = campaign.campaign_id
         and report.source_relation = campaign.source_relation
-    join organization 
+    left join organization 
         on campaign.organization_id = organization.organization_id
         and campaign.source_relation = organization.source_relation
     {{ dbt_utils.group_by(5) }}
