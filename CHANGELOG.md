@@ -1,5 +1,5 @@
 # dbt_apple_search_ads v0.4.1
-[PR #25](https://github.com/fivetran/dbt_apple_search_ads/pull/25) includes the following updates:
+[PR #26](https://github.com/fivetran/dbt_apple_search_ads/pull/26) includes the following updates:
 
 ## Bug Fixes
 - Adjusts `inner joins` in each end model to be `left joins`. 
