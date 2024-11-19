@@ -1,3 +1,12 @@
+# dbt_apple_search_ads v0.4.1
+[PR #26](https://github.com/fivetran/dbt_apple_search_ads/pull/26) includes the following updates:
+
+## Bug Fixes
+- Adjusts `inner joins` in each end model to be `left joins`. 
+  - When ads and other entities are deleted from Apple Search Ads, their records are hard-deleted from the `<entity>_history` source tables, though any associated `<entity>_report` records persist with new `<entity>_id` values of `-1`. This update ensures that the report records persist into the package's end models in these cases.
+>**Note**: This will likely increase the row count of your data models. To remove these newly included records, filter out rows where the `<entity>_id = -1`.
+- We have accordingly made sure to select fields, specifically entity IDs, from the left side of these joins (the report tables).
+
 # dbt_apple_search_ads v0.4.0
 [PR #24](https://github.com/fivetran/dbt_apple_search_ads/pull/24) includes the following **BREAKING CHANGE** updates:
 

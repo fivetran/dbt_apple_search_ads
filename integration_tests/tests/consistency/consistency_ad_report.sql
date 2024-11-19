@@ -8,12 +8,20 @@ with prod as (
     select
         {{ dbt_utils.star(from=ref('apple_search_ads__ad_report'), except=var('consistency_test_exclude_metrics', '[]')) }}
     from {{ target.schema }}_apple_search_ads_prod.apple_search_ads__ad_report
+
+    {% if var('ad_consistency_inclusion_criteria') %}
+        where {{ var('ad_consistency_inclusion_criteria') }}
+    {% endif %}
 ),
 
 dev as (
     select
         {{ dbt_utils.star(from=ref('apple_search_ads__ad_report'), except=var('consistency_test_exclude_metrics', '[]')) }}
     from {{ target.schema }}_apple_search_ads_dev.apple_search_ads__ad_report
+
+    {% if var('ad_consistency_inclusion_criteria') %}
+        where {{ var('ad_consistency_inclusion_criteria') }}
+    {% endif %}
 ),
 
 prod_not_in_dev as (
