@@ -112,7 +112,7 @@ vars:
 > IMPORTANT: Make sure to exercise due diligence when adding metrics to these models. The metrics added by default have been vetted by the Fivetran team, maintaining this package for accuracy. There are metrics included within the source reports, such as metric averages, which may be inaccurately represented at the grain for reports created in this package. You must ensure that whichever metrics you pass through are appropriate to aggregate at the respective reporting levels in this package.
 
 #### Disabling Additional Models
-Your Apple Search Ads connector might not sync every table this package expects. If your syncs exclude certain tables, you either don't use that functionality in Apple Search Ads or actively exclude some tables from your syncs. You must add the relevant variables to disable the corresponding functionality in the package. By default, the package assumes that all variables are true. Add variables for only the tables you want to disable.
+Your Apple Search Ads connection might not sync every table this package expects. If your syncs exclude certain tables, you either don't use that functionality in Apple Search Ads or actively exclude some tables from your syncs. You must add the relevant variables to disable the corresponding functionality in the package. By default, the package assumes that all variables are true. Add variables for only the tables you want to disable.
 
 The `apple_search_ads__using_search_terms` variable below refers to the `search_terms_report` table. You must enable the [search match](https://searchads.apple.com/help/campaigns/0006-understand-search-match) function within each ad group to populate this table with data.
 
