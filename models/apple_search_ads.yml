@@ -43,17 +43,25 @@ models:
       - name: taps
         description: Number of taps on ad group on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of ad group in a given day.
+        description: App downloads from new users who have never before installed app of ad group in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day.
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: total_downloads
-        description: The sum of new_downloads and redownloads.
+        description: The sum of new_downloads and redownloads. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: conversions
-        description: Total installs resulting from a view or a tap.
+        description: Total installs resulting from a view or a tap. This will be deprecated by April 2025; please refer to the new field which is tap_installs.
       - name: impressions
         description: The number of impressions of ad group in a given day.
       - name: spend
         description: The spend on ad group in the given day.
+      - name: tap_new_downloads
+        description: "{{ doc('tap_new_downloads') }}"
+      - name: tap_redownloads
+        description: "{{ doc('tap_redownloads') }}"
+      - name: total_tap_downloads
+        description: The sum of new_downloads and redownloads.
+      - name: tap_installs
+        description: "{{ doc('tap_installs') }}"
 
   - name: apple_search_ads__ad_report
     description: Each record represents the daily ad performance of each ad.
@@ -98,17 +106,25 @@ models:
       - name: taps
         description: Number of taps on ad group on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of ad group in a given day.
+        description: App downloads from new users who have never before installed app of ad group in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day.
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of ad group in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: Total installs resulting from a view or a tap.
+        description: Total installs resulting from a view or a tap. This will be deprecated by April 2025; please refer to the new field which is tap_installs.
       - name: impressions
         description: The number of impressions of ad group in a given day.
       - name: spend
         description: The spend on ad group in the given day.
+      - name: tap_new_downloads
+        description: "{{ doc('tap_new_downloads') }}"
+      - name: tap_redownloads
+        description: "{{ doc('tap_redownloads') }}"
+      - name: total_tap_downloads
+        description: The sum of new_downloads and redownloads.
+      - name: tap_installs
+        description: "{{ doc('tap_installs') }}"
 
   - name: apple_search_ads__campaign_report
     description: Each record represents the daily ad performance of each campaign.
@@ -147,17 +163,25 @@ models:
       - name: taps
         description: Number of taps on campaign on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of campaign in a given day.
+        description: App downloads from new users who have never before installed app of campaign in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of campaign in a given day.
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of campaign in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: Total installs resulting from a view or a tap.
+        description: Total installs resulting from a view or a tap. This will be deprecated by April 2025; please refer to the new field which is tap_installs.
       - name: impressions
         description: The number of impressions of campaign in a given day.
       - name: spend
         description: The spend on campaign in the given day.
+      - name: tap_new_downloads
+        description: "{{ doc('tap_new_downloads') }}"
+      - name: tap_redownloads
+        description: "{{ doc('tap_redownloads') }}"
+      - name: total_tap_downloads
+        description: The sum of new_downloads and redownloads.
+      - name: tap_installs
+        description: "{{ doc('tap_installs') }}"
         
   - name: apple_search_ads__keyword_report
     description: Each record represents the daily ad performance of each creative set.
@@ -204,17 +228,25 @@ models:
       - name: taps
         description: Number of taps on keyword on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of keyword in a given day.
+        description: App downloads from new users who have never before installed app of keyword in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of keyword in a given day. 
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of keyword in a given day.  This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: Total installs resulting from a view or a tap.
+        description: Total installs resulting from a view or a tap. This will be deprecated by April 2025; please refer to the new field which is tap_installs.
       - name: impressions
         description: The number of impressions of keyword in a given day.
       - name: spend
         description: The spend on keyword in the given day.
+      - name: tap_new_downloads
+        description: "{{ doc('tap_new_downloads') }}"
+      - name: tap_redownloads
+        description: "{{ doc('tap_redownloads') }}"
+      - name: total_tap_downloads
+        description: The sum of new_downloads and redownloads.
+      - name: tap_installs
+        description: "{{ doc('tap_installs') }}"
 
   - name: apple_search_ads__organization_report
     description: Each record represents the daily ad performance of each organization.
@@ -242,17 +274,25 @@ models:
       - name: taps
         description: Number of taps on organization on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of organization in a given day.
+        description: App downloads from new users who have never before installed app of organization in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day.
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: Total installs resulting from a view or a tap.
+        description: Total installs resulting from a view or a tap. This will be deprecated by April 2025; please refer to the new field which is tap_installs.
       - name: impressions
         description: The number of impressions of organization in a given day.
       - name: spend
         description: The spend on organization in the given day.
+      - name: tap_new_downloads
+        description: "{{ doc('tap_new_downloads') }}"
+      - name: tap_redownloads
+        description: "{{ doc('tap_redownloads') }}"
+      - name: total_tap_downloads
+        description: The sum of new_downloads and redownloads.
+      - name: tap_installs
+        description: "{{ doc('tap_installs') }}"
   
   - name: apple_search_ads__search_term_report
     description: Each record represents the daily ad performance of each search term, only includes records with search term values.
@@ -297,13 +337,13 @@ models:
       - name: taps
         description: Number of taps on organization on given day.
       - name: new_downloads
-        description: App downloads from new users who have never before installed app of organization in a given day.
+        description: App downloads from new users who have never before installed app of organization in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: redownloads
-        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day.
+        description: Number of user downloads where user deletes app and downloads the same app again following a tap on an ad on the App Store, or downloads the same app to an additional device of organization in a given day. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
       - name: total_downloads
         description: The sum of new_downloads and redownloads.
       - name: conversions
-        description: Total installs resulting from a view or a tap.
+        description: Total installs resulting from a view or a tap. This will be deprecated by April 2025; please refer to the new field which is tap_installs.
       - name: impressions
         description: The number of impressions of organization in a given day.
       - name: spend
@@ -312,3 +352,11 @@ models:
         description: Creative set name associatd with this record.
       - name: keyword_text
         description: Creative set ID associated with this record.
+      - name: tap_new_downloads
+        description: "{{ doc('tap_new_downloads') }}"
+      - name: tap_redownloads
+        description: "{{ doc('tap_redownloads') }}"
+      - name: total_tap_downloads
+        description: The sum of new_downloads and redownloads.
+      - name: tap_installs
+        description: "{{ doc('tap_installs') }}"
