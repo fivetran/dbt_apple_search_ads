@@ -51,9 +51,13 @@ joined as (
         keyword.keyword_status,
         sum(report.taps) as taps,
         sum(report.new_downloads) as new_downloads,
+        sum(report.tap_new_downloads) as tap_new_downloads,
         sum(report.redownloads) as redownloads,
+        sum(report.tap_redownloads) as tap_redownloads,
         sum(report.new_downloads + report.redownloads) as total_downloads,
+        sum(report.tap_new_downloads + report.tap_redownloads) as total_tap_downloads,
         sum(report.conversions) as conversions,
+        sum(report.tap_installs) as tap_installs,
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
 
