@@ -6,7 +6,7 @@ version: '0.5.0'
 profile: 'integration_tests' 
 
 vars:
-  apple_search_ads_schema: apple_search_ads_integrations_tests_1
+  apple_search_ads_schema: apple_search_ads_integrations_tests_2
   apple_search_ads_organization_identifier: "organization_data"
   apple_search_ads_campaign_history_identifier: "campaign_history_data"
   apple_search_ads_campaign_report_identifier: "campaign_report_data"
@@ -27,6 +27,7 @@ vars:
       alias: conversions_alias_should_be_included
 
   ad_consistency_inclusion_criteria: 'ad_name is not null' # Validating change persisting deleted ads (and other entities, but we only have deleted ads) to end models
+  consistency_test_exclude_metrics: ['tap_installs', 'tap_new_downloads', 'tap_redownloads', 'tap_total_downloads'] # remove after v0.5.0 release
 
 models:
   +schema: "apple_search_ads_{{ var('directed_schema','dev') }}"
