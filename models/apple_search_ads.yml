@@ -47,7 +47,7 @@ models:
       - name: redownloads
         description: "{{ doc('redownloads') }}"
       - name: total_downloads
-        description: The sum of new_downloads and redownloads. This will be deprecated by April 2025; please refer to the new field which is prefixed with "tap_".
+        description: "{{ doc('total_downloads') }}"
       - name: conversions
         description: "{{ doc('conversions') }}"
       - name: impressions
@@ -110,7 +110,7 @@ models:
       - name: redownloads
         description: "{{ doc('redownloads') }}"
       - name: total_downloads
-        description: The sum of new_downloads and redownloads.
+        description: "{{ doc('total_downloads') }}"
       - name: conversions
         description: "{{ doc('conversions') }}"
       - name: impressions
@@ -167,7 +167,7 @@ models:
       - name: redownloads
         description: "{{ doc('redownloads') }}"
       - name: total_downloads
-        description: The sum of new_downloads and redownloads.
+        description: "{{ doc('total_downloads') }}"
       - name: conversions
         description: "{{ doc('conversions') }}"
       - name: impressions
@@ -232,7 +232,7 @@ models:
       - name: redownloads
         description: "{{ doc('redownloads') }}"
       - name: total_downloads
-        description: The sum of new_downloads and redownloads.
+        description: "{{ doc('total_downloads') }}"
       - name: conversions
         description: "{{ doc('conversions') }}"
       - name: impressions
@@ -278,7 +278,7 @@ models:
       - name: redownloads
         description: "{{ doc('redownloads') }}"
       - name: total_downloads
-        description: The sum of new_downloads and redownloads.
+        description: "{{ doc('total_downloads') }}"
       - name: conversions
         description: "{{ doc('conversions') }}"
       - name: impressions
@@ -341,7 +341,7 @@ models:
       - name: redownloads
         description: "{{ doc('redownloads') }}"
       - name: total_downloads
-        description: The sum of new_downloads and redownloads.
+        description: "{{ doc('total_downloads') }}"
       - name: conversions
         description: "{{ doc('conversions') }}"
       - name: impressions
