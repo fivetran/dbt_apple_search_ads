@@ -2,16 +2,17 @@
 [PR #29](https://github.com/fivetran/dbt_apple_search_ads/pull/29) includes the following updates:
 
 ## Breaking Changes: Apple Search Ads API v5 schema updates
-- Following the connector updates surrounding the Apple Search Ads API v5 release, the following fields have been added to the upstream `*_report` staging models and will be used to sunset the below fields:
+- Following the connector updates surrounding the Apple Search Ads API v5 release, the following fields have been added to the upstream `*_report` staging models ([PR #54](https://github.com/fivetran/dbt_apple_search_ads_source/pull/54)) and will be used to sunset the below fields:
   - `tap_installs` - replacing `conversions`
   - `tap_new_downloads` - replacing `new_downloads`
   - `tap_redownloads` - replacing `redownloads`
 - Following this, the end models now have the following new fields, which be used to sunset the below fields:
   - `tap_new_downloads` - replacing `new_downloads`
   - `tap_redownloads` - replacing `tap_redownloads`
-  - `total_tap_downloads` - replacing `total_downloads`
+  - `tap_total_downloads` - replacing `total_downloads`
   - `tap_installs` - replacing `conversions`
-- We encourage referencing the new fields, as the fields being replaced will be deprecated by April 2025 in an upcoming release.
+- In order to maintain backwards compatibility and historical data, we have coalesced the new and existing versions of each field.
+- **We encourage referencing the new fields, as the fields being replaced will be deprecated by April 2025 in an upcoming release.**
 
 ## Documentation
 - Added Quickstart model counts to README. ([#28](https://github.com/fivetran/dbt_apple_search_ads/pull/28))
