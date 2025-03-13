@@ -49,13 +49,13 @@ joined as (
         report.currency,
         ad.ad_status,
         sum(report.taps) as taps,
-        sum(report.new_downloads) as new_downloads,
+        sum(report.new_downloads) as new_downloads, -- this will be deprecated shortly; please reference tap_new_downloads instead
         sum(report.tap_new_downloads) as tap_new_downloads,
-        sum(report.redownloads) as redownloads,
+        sum(report.redownloads) as redownloads, -- this will be deprecated shortly; please reference tap_redownloads instead
         sum(report.tap_redownloads) as tap_redownloads,
-        sum(report.new_downloads + report.redownloads) as total_downloads,
-        sum(report.tap_new_downloads + report.tap_redownloads) as total_tap_downloads,
-        sum(report.conversions) as conversions,
+        sum(report.new_downloads + report.redownloads) as total_downloads, -- this will be deprecated shortly; please reference tap_total_downloads instead
+        sum(report.tap_new_downloads + report.tap_redownloads) as tap_total_downloads,
+        sum(report.conversions) as conversions, -- this will be deprecated shortly; please reference tap_installs instead
         sum(report.tap_installs) as tap_installs,
         sum(report.impressions) as impressions,
         sum(report.spend) as spend
