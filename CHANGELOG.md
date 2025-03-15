@@ -12,7 +12,7 @@
   - `tap_total_downloads` - replacing `total_downloads`
   - `tap_installs` - replacing `conversions`
 - In order to maintain backwards compatibility and historical data, we have coalesced the new and existing versions of each field.
-- **We encourage referencing the new fields, as the fields being replaced will be deprecated by April 2025 in an upcoming release.**
+- **We encourage referencing the new fields, as the fields being replaced will be deprecated by April 2025 in an upcoming release as highlighted by this [ticket](https://github.com/fivetran/dbt_apple_search_ads_source/issues/55).** 
 
 ## Documentation
 - Added Quickstart model counts to README. ([#28](https://github.com/fivetran/dbt_apple_search_ads/pull/28))
