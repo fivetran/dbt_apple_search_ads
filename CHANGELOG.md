@@ -6,7 +6,7 @@
   - `tap_installs` - replacing `conversions`
   - `tap_new_downloads` - replacing `new_downloads`
   - `tap_redownloads` - replacing `redownloads`
-- Following this, the end models now have the following new fields, which be used to sunset the below fields:
+- Following this, the end models now have the following new fields, which will be used to sunset the below fields:
   - `tap_new_downloads` - replacing `new_downloads`
   - `tap_redownloads` - replacing `tap_redownloads`
   - `tap_total_downloads` - replacing `total_downloads`
