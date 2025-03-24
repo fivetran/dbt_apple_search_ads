@@ -1,4 +1,5 @@
-<p align="center">
+# Apple Search Ads Transformation dbt Package ([Docs](https://fivetran.github.io/dbt_apple_search_ads/))
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_apple_search_ads/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +11,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Apple Search Ads Transformation dbt Package ([Docs](https://fivetran.github.io/dbt_apple_search_ads/))
 ## What does this dbt package do?
 - Produces modeled tables that leverage Apple Search Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/apple-search-ads) in the format described by [this ERD](https://fivetran.com/docs/applications/apple-search-ads#schemainformation) and builds off the output of our [Apple Search Ads source package](https://github.com/fivetran/dbt_apple_search_ads_source).
 - Enables you to better understand the performance of your ads across varying grains:
@@ -56,7 +56,7 @@ Include the following apple_search_ads package version in your `packages.yml` fi
 ```yaml
 packages:
   - package: fivetran/apple_search_ads
-    version: [">=0.4.0", "<0.5.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 Do NOT include the `apple_search_ads_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
@@ -87,7 +87,7 @@ vars:
 To connect your multiple schema/database sources to the package models, follow the steps outlined in the [Union Data Defined Sources Configuration](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#union_data-source) section of the Fivetran Utils documentation for the union_data macro. This will ensure a proper configuration and correct visualization of connections in the DAG.
 
 #### Adding passthrough metrics
-By default, this package will select `taps`, `impressions`, `spend` (aliased from source `local_spend_amount` field), `new_downloads`, `redownloads`, `total_downloads` (sum of `new_downloads` and `redownloads`), and `conversions` (installs resulting from a view or a tap) from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables.
+By default, this package will select `taps`, `impressions`, `spend` (aliased from source `local_spend_amount` field), `new_downloads`, `redownloads`, `total_downloads` (sum of `new_downloads` and `redownloads`), `conversions` (installs resulting from a view or a tap), `tap_new_downloads`, `tap_redownloads`, `tap_installs` (these last 3 fields are replacing `new_downloads`, `redownloads`, `conversions`, respectively, which will be deprecated in an upcoming release) from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables.
 
 > NOTE: There is no direct `conversion_value` field available in Apple Search Ads data. See the [DECISIONLOG](https://github.com/fivetran/dbt_apple_search_ads/blob/main/DECISIONLOG.md#conversion-value) for more details on alternatives.
 
@@ -161,7 +161,7 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/apple_search_ads_source
-      version: [">=0.4.0", "<0.5.0"]
+      version: [">=0.5.0", "<0.6.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
