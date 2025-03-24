@@ -6,7 +6,7 @@ version: '0.5.0'
 profile: 'integration_tests' 
 
 vars:
-  apple_search_ads_schema: apple_search_ads_integrations_tests_2
+  apple_search_ads_schema: apple_search_ads_integrations_tests_3
   apple_search_ads_organization_identifier: "organization_data"
   apple_search_ads_campaign_history_identifier: "campaign_history_data"
   apple_search_ads_campaign_report_identifier: "campaign_report_data"
