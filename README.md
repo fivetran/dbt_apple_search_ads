@@ -12,7 +12,7 @@
 </p>
 
 ## What does this dbt package do?
-- Produces modeled tables that leverage Apple Search Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/apple-search-ads) in the format described by [this ERD](https://fivetran.com/docs/applications/apple-search-ads#schemainformation) and builds off the output of our [Apple Search Ads source package](https://github.com/fivetran/dbt_apple_search_ads_source).
+- Produces modeled tables that leverage Apple Search Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/apple-search-ads) in the format described by [this ERD](https://fivetran.com/docs/applications/apple-search-ads#schemainformation).
 - Enables you to better understand the performance of your ads across varying grains:
     - Providing an organization, campaign, ad group, keyword, search term and ad level reports.
 - Materializes output models designed to work simultaneously with our [multi-platform Ad Reporting package](https://github.com/fivetran/dbt_ad_reporting).
@@ -56,10 +56,10 @@ Include the following apple_search_ads package version in your `packages.yml` fi
 ```yaml
 packages:
   - package: fivetran/apple_search_ads
-    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.0.0", "<1.1.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
-Do NOT include the `apple_search_ads_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
+> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/apple_search_ads_source` in your `packages.yml` since this package has been deprecated.
 
 
 ### Step 3: Define database and schema variables
@@ -129,10 +129,10 @@ By default, this package builds the Apple Search Ads staging models (10 views, 1
 
 ```yml
 models:
-    apple_search_ads_source:
-      +schema: my_new_schema_name # leave blank for just the target_schema
     apple_search_ads:
-      +schema: my_new_schema_name # leave blank for just the target_schema
+      +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
+      staging:
+        +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
 ```
     
 #### Change the source table references
@@ -160,9 +160,6 @@ This dbt package is dependent on the following dbt packages. These dependencies 
     
 ```yml
 packages:
-    - package: fivetran/apple_search_ads_source
-      version: [">=0.6.0", "<0.7.0"]
-
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
 

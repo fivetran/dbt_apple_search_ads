@@ -3,27 +3,27 @@
 with report as (
 
     select *
-    from {{ var('ad_group_report') }}
+    from {{ ref('stg_apple_search_ads__ad_group_report') }}
 ), 
 
 ad_group as (
 
     select * 
-    from {{ var('ad_group_history') }}
+    from {{ ref('stg_apple_search_ads__ad_group_history') }}
     where is_most_recent_record = True
 ), 
 
 campaign as (
 
     select *
-    from {{ var('campaign_history') }}
+    from {{ ref('stg_apple_search_ads__campaign_history') }}
     where is_most_recent_record = True
 ), 
 
 organization as (
 
     select * 
-    from {{ var('organization') }}
+    from {{ ref('stg_apple_search_ads__organization') }}
 ), 
 
 joined as (
