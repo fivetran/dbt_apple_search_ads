@@ -1,4 +1,4 @@
-# Apple Search Ads Transformation dbt Package ([Docs](https://fivetran.github.io/dbt_apple_search_ads/))
+# Apple Search Ads dbt Package ([Docs](https://fivetran.github.io/dbt_apple_search_ads/))
 
 <p align="left">
     <a alt="License"

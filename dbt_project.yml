@@ -25,4 +25,6 @@ models:
     +materialized: table
     staging:
       +schema: apple_search_ads_source
-      +materialized: view
+      +materialized: table
+      tmp:
+        +materialized: view
