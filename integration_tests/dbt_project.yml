@@ -27,12 +27,13 @@ vars:
       alias: conversions_alias_should_be_included
 
   ad_consistency_inclusion_criteria: 'ad_name is not null' # Validating change persisting deleted ads (and other entities, but we only have deleted ads) to end models
-  consistency_test_exclude_metrics: ['tap_installs', 'tap_new_downloads', 'tap_redownloads', 'tap_total_downloads'] # remove after v0.5.0 release
 
 models:
   +schema: "apple_search_ads_{{ var('directed_schema','dev') }}"
 
 seeds:
+  +docs:
+    show: False
   +quote_columns: "{{ true if target.type == 'redshift' else false }}"
   apple_search_ads_integration_tests:
     +column_types:
@@ -45,3 +46,6 @@ seeds:
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True

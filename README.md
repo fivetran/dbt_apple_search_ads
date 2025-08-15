@@ -1,4 +1,5 @@
 # Apple Search Ads Transformation dbt Package ([Docs](https://fivetran.github.io/dbt_apple_search_ads/))
+
 <p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_apple_search_ads/blob/main/LICENSE">
@@ -9,6 +10,9 @@
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+    <a alt="Fivetran Quickstart Compatible"
+        href="https://fivetran.com/docs/transformations/dbt/quickstart">
+        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
 ## What does this dbt package do?
@@ -60,7 +64,6 @@ packages:
 ```
 
 > All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/apple_search_ads_source` in your `packages.yml` since this package has been deprecated.
-
 
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `apple_search_ads` schema. If this is not where your Apple Search Ads data is (for example, if your Apple Search Ads schema is named `apple_search_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -134,7 +137,7 @@ models:
       staging:
         +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
 ```
-    
+
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable. This is not available when running the package on multiple unioned connections.
 
@@ -157,7 +160,7 @@ Fivetran offers the ability for you to orchestrate your dbt project through [Fiv
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
-    
+
 ```yml
 packages:
     - package: fivetran/fivetran_utils
