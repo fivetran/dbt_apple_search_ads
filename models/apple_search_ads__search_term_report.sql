@@ -3,20 +3,20 @@
 with report as (
 
     select *
-    from {{ var('search_term_report') }}
+    from {{ ref('stg_apple_search_ads__search_term_report') }}
 ), 
 
 campaign as (
 
     select *
-    from {{ var('campaign_history') }}
+    from {{ ref('stg_apple_search_ads__campaign_history') }}
     where is_most_recent_record = True
 ), 
 
 organization as (
 
     select * 
-    from {{ var('organization') }}
+    from {{ ref('stg_apple_search_ads__organization') }}
 ), 
 
 joined as (
