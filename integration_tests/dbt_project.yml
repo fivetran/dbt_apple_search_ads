@@ -20,12 +20,12 @@ vars:
     apple_search_ads_search_term_report_identifier: "search_term_report_data"
     apple_search_ads__using_search_terms: True
   
-    apple_search_ads__ad_group_passthrough_metrics:
-      - name: conversions
-      - name: lat_off_installs
-    apple_search_ads__ad_passthrough_metrics:
-      - name: conversions
-        alias: conversions_alias_should_be_included
+    apple_search_ads__ad_group_passthrough_metrics: # @docs-ignore
+      - name: conversions # @docs-ignore
+      - name: lat_off_installs # @docs-ignore
+    apple_search_ads__ad_passthrough_metrics: # @docs-ignore
+      - name: conversions # @docs-ignore
+        alias: conversions_alias_should_be_included # @docs-ignore
   
     ad_consistency_inclusion_criteria: 'ad_name is not null' # Validating change persisting deleted ads (and other entities, but we only have deleted ads) to end models
 
