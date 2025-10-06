@@ -36,7 +36,7 @@ final as (
         name as ad_name,
         id as ad_id,
         status as ad_status, 
-        row_number() over (partition by source_relation, id order by modification_time desc) = 1 as is_most_recent_record
+        row_number() over (partition by id {{ partition_by_source_relation() }} order by modification_time desc) = 1 as is_most_recent_record
     from fields
 )
 
