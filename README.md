@@ -25,14 +25,26 @@
 <!--section="apple_search_ads_transformation_model"-->
 The following table provides a detailed list of all tables materialized within this package by default.
 
-| **Table**                | **Description**                                                                                                                                |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [apple_search_ads__organization_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__organization_report)             | Each record in this table represents the daily performance at the organization level. |
-| [apple_search_ads__campaign_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__campaign_report)            | Each record in this table represents the daily performance of a campaign at the campaign/advertising_channel/advertising_channel_subtype level. |
-| [apple_search_ads__ad_group_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_group_report)            | Each record in this table represents the daily performance at the ad group level. |
-| [apple_search_ads__ad_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_report)            | Each record in this table represents the daily performance at the ad level. |
-| [apple_search_ads__keyword_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report)            | Each record in this table represents the daily performance at the ad group level for keywords. |
-| [apple_search_ads__search_term_report](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report)            | Each record in this table represents the daily performance at the ad group level for search term report. |
+| **Table** | **Details** |
+|-----------|-------------|
+| [`apple_search_ads__organization_report`](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__organization_report) | Represents daily performance aggregated at the organization level, including `spend`, `taps`, `impressions`, and `tap_installs`.<br><br>**Example Analytics Questions:**<ul><li>How does performance compare across different accounts by account manager?</li><li>Are currency fluctuations affecting results across markets?</li></ul> |
+| [`apple_search_ads__campaign_report`](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__campaign_report) | Represents daily performance aggregated at the campaign level, including `spend`, `taps`, `impressions`, and `tap_installs`.<br><br>**Example Analytics Questions:**<ul><li>Which campaigns are most efficient in terms of cost per conversion?</li><li>Are paused or limited-status campaigns still accruing impressions?</li><li>Which campaigns contribute most to overall spend or conversions?</li></ul> |
+| [`apple_search_ads__ad_group_report`](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_group_report) | Represents daily performance aggregated at the ad group level, including `spend`, `taps`, `impressions`, and `tap_installs`.<br><br>**Example Analytics Questions:**<ul><li>Which ad groups have the strongest engagement relative to their budget?</li><li>Do certain ad groups dominate impressions within a campaign?</li><li>Are new ad groups ramping up as expected after launch?</li></ul> |
+| [`apple_search_ads__ad_report`](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__ad_report) | Represents daily performance at the individual ad level, including `spend`, `taps`, `impressions`, and `tap_installs`.<br><br>**Example Analytics Questions:**<ul><li>Which ad creatives are driving the lowest cost per tap?</li><li>Do expanded text ads perform better than responsive search ads?</li><li>How do performance trends change after refreshing ad copy?</li></ul> |
+| [`apple_search_ads__keyword_report`](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report) | Represents daily performance at the individual keyword level, including `spend`, `taps`, `impressions`, and `tap_installs`.<br><br>**Example Analytics Questions:**<ul><li>Which keywords are driving the highest quality traffic at the lowest cost?</li><li>Are branded vs. non-branded keywords performing differently?</li><li>Should underperforming keywords be reallocated to different match types?</li></ul> |
+| [`apple_search_ads__search_term_report`](https://fivetran.github.io/dbt_apple_search_ads/#!/model/model.apple_search_ads.apple_search_ads__keyword_report) | Represents daily performance at the individual search term level, including `spend`, `taps`, `impressions`, and `tap_installs`.<br><br>**Example Analytics Questions:**<ul><li>What new search terms are emerging that I should add as keywords?</li><li>Which irrelevant search terms should be added as negatives to reduce wasted spend?</li><li>Are there seasonal shifts in search terms driving conversions?</li></ul> |
+
+Many of the above reports are now configurable for [visualization via Streamlit](https://github.com/fivetran/streamlit_ad_reporting). Check out some [sample reports here](https://fivetran-ad-reporting.streamlit.app/ad_performance).
+
+### Example Visualizations
+
+Curious what these tables can do? The Apple Search Ads models provide advertising performance data that can be visualized to track key metrics like spend, impressions, click-through rates, conversion rates, and return on ad spend across different campaign structures and time periods. Check out example visualizations in the [Fivetran Ad Reporting Streamlit App](https://fivetran-ad-reporting.streamlit.app/ad_performance), and see how you can use these tables in your own reporting. Below is a screenshot of an example dashboard; explore the app for more.
+
+<p align="center">
+  <a href="https://fivetran-ad-reporting.streamlit.app/ad_performance">
+    <img src="https://raw.githubusercontent.com/fivetran/dbt_apple_search_ads/main/images/streamlit_example.png" alt="Fivetran Ad Reporting Streamlit App" width="100%">
+  </a>
+</p>
 
 ### Materialized Models
 Each Quickstart transformation job run materializes 26 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
