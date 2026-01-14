@@ -75,7 +75,7 @@ To use this dbt package, you must have the following:
 ## How do I use the dbt package?
 You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
 
-- To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/data-models/quickstart-management#quickstartmanagement).
+- To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore).
 - To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_apple_search_ads/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
 
 <!--section-end-->
@@ -187,7 +187,7 @@ vars:
 ### (Optional) Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for more details</summary>
 
-Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/data-models/quickstart-management#quickstartmanagement). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core setup guides](https://fivetran.com/docs/transformations/dbt/setup-guide#transformationsfordbtcoresetupguide).
+Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core setup guides](https://fivetran.com/docs/transformations/dbt/setup-guide#transformationsfordbtcoresetupguide).
 
 </details>
 
