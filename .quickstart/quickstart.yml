@@ -21,3 +21,30 @@ public_models: [
   'apple_search_ads__campaign_report',
   'apple_search_ads__organization_report'
 ]
+
+supported_vars:
+  apple_search_ads__ad_passthrough_metrics:
+    type: dictionary
+    description: "Additional `AD_LEVEL_REPORT` columns to include in `apple_search_ads__ad_report`"
+    display_name: "Additional Ad Report Metrics"
+
+  apple_search_ads__campaign_passthrough_metrics:
+    type: dictionary
+    description: "Additional `CAMPAIGN_REPORT` columns to include in `apple_search_ads__campaign_report` and `apple_search_ads__organization_report`"
+    display_name: "Additional Campaign Report Metrics"
+
+  apple_search_ads__ad_group_passthrough_metrics:
+    type: dictionary
+    description: "Additional `AD_GROUP_REPORT` columns to include in `apple_search_ads__ad_group_report`"
+    display_name: "Additional Ad Group Report Metrics"
+
+  apple_search_ads__keyword_passthrough_metrics:
+    type: dictionary
+    description: "Additional `KEYWORD_REPORT` columns to include in `apple_search_ads__keyword_report`"
+    display_name: "Additional Keyword Report Metrics"
+
+  apple_search_ads__search_term_passthrough_metrics:
+    type: dictionary
+    description: "Additional `SEARCH_TERM_REPORT` columns to include in `apple_search_ads__search_term_report`"
+    display_name: "Additional Search Term Report Metrics"
+
