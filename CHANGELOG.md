@@ -1,3 +1,14 @@
+# dbt_apple_search_ads v1.2.0
+
+[PR #43](https://github.com/fivetran/dbt_apple_search_ads/pull/43) includes the following updates:
+
+## Documentation
+- Updates README with standardized Fivetran formatting.
+
+## Under the Hood
+- In the `quickstart.yml` file:
+  - Adds `supported_vars` for Quickstart UI customization.
+
 # dbt_apple_search_ads v1.1.0
 
 [PR #42](https://github.com/fivetran/dbt_apple_search_ads/pull/42) includes the following updates:
