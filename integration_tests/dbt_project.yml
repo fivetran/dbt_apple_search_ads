@@ -30,6 +30,9 @@ vars:
     ad_consistency_inclusion_criteria: 'ad_name is not null' # Validating change persisting deleted ads (and other entities, but we only have deleted ads) to end models
 
 models:
+  +persist_docs:
+    relation: true
+    columns: true
   +schema: "apple_search_ads_{{ var('directed_schema','dev') }}"
 
 seeds:
