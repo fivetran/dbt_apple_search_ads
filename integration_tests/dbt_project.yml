@@ -40,12 +40,23 @@ seeds:
     show: False
   +quote_columns: "{{ true if target.type == 'redshift' else false }}"
   apple_search_ads_integration_tests:
-    +column_types:
-      modification_time: "timestamp"
-      start_time: "timestamp"
-      end_time: "timestamp"
-      creation_time: "timestamp"
-      _fivetran_synced: "timestamp"
+    ad_group_history_data:
+      +column_types:
+        modification_time: "timestamp"
+        start_time: "timestamp"
+        end_time: "timestamp"
+    ad_history_data:
+      +column_types:
+        creation_time: "timestamp"
+        modification_time: "timestamp"
+    campaign_history_data:
+      +column_types:
+        modification_time: "timestamp"
+        start_time: "timestamp"
+        end_time: "timestamp"
+    keyword_history_data:
+      +column_types:
+        modification_time: "timestamp"
         
 dispatch:
   - macro_namespace: dbt_utils
