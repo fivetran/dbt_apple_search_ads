@@ -57,9 +57,6 @@ seeds:
     keyword_history_data:
       +column_types:
         modification_time: "timestamp"
-    search_term_report_data:
-      +column_types:
-        _fivetran_synced: "timestamp"
         
 dispatch:
   - macro_namespace: dbt_utils
