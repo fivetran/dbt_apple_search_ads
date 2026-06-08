@@ -3,7 +3,7 @@
 [PR #48](https://github.com/fivetran/dbt_apple_search_ads/pull/48) includes the following updates:
 
 ## Schema/Data Changes (--full-refresh required after upgrading)
-**2 total changes • 1 possible breaking change**
+**1 total change • 1 possible breaking change**
 
 | Data Model(s) | Change type | Old | New | Notes |
 | ------------- | ----------- | --- | --- | ----- |
