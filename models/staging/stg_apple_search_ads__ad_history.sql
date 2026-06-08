@@ -16,10 +16,7 @@ fields as (
             )
         }}
     
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='apple_search_ads_union_schemas', 
-            union_database_variable='apple_search_ads_union_databases') 
-        }}
+        {{ fivetran_utils.apply_source_relation(package_name='apple_search_ads') }}
 
     from base
 ),
@@ -36,7 +33,7 @@ final as (
         name as ad_name,
         id as ad_id,
         status as ad_status, 
-        row_number() over (partition by source_relation, id order by modification_time desc) = 1 as is_most_recent_record
+        row_number() over (partition by id {{ fivetran_utils.partition_by_source_relation(package_name='apple_search_ads') }} order by modification_time desc) = 1 as is_most_recent_record
     from fields
 )
 
