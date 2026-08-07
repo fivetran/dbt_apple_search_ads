@@ -1,3 +1,11 @@
+# dbt_apple_search_ads v1.3.1
+
+[PR #50](https://github.com/fivetran/dbt_apple_search_ads/pull/50) includes the following updates:
+
+## Feature Updates
+- Adds DuckDB as a supported destination.
+
+
 # dbt_apple_search_ads v1.3.0
 
 [PR #48](https://github.com/fivetran/dbt_apple_search_ads/pull/48) includes the following updates:
