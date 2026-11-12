@@ -26,7 +26,7 @@ models:
         description: Ad group name.
       - name: organization_id
         description: Organization ID associated with the record.
-      - name: status
+      - name: ad_group_status
         description: The current status of the ad group, values include ENABLED and PAUSED.
 
   - name: stg_apple_search_ads__ad_group_report
@@ -74,6 +74,8 @@ models:
         description: Timestamp of when the ad object was last modified.
         tests:
           - not_null
+      - name: is_most_recent_record
+        description: Boolean representing whether a record is the most recent version of that record.
       - name: organization_id
         description: Organization ID associated with the record.
       - name: campaign_id
@@ -152,7 +154,7 @@ models:
         description: Campaign name for the record.
       - name: organization_id
         description: Organization ID associated with the record.
-      - name: status
+      - name: campaign_status
         description: The current status of the campaign, values include ENABLED and PAUSED.
         
   - name: stg_apple_search_ads__campaign_report
@@ -215,7 +217,7 @@ models:
         description: This currency value should match the respective organization's currency value.
       - name: match_type
         description: Controls how ads are matched to user searches; EXACT or BROAD.
-      - name: status
+      - name: keyword_status
         description: The current status of the keyword, values include ENABLED and PAUSED.
       - name: keyword_text
         description: The word or phrase to match in user searches, to show respective ad.
@@ -283,8 +285,6 @@ models:
           - not_null
       - name: ad_group_id
         description: Ad group ID associated with the record.
-      - name: ad_format
-        description: Format of creative set.
       - name: campaign_id
         description: Campaign ID associated with the record.
       - name: date_day
