@@ -1,0 +1,15 @@
+version: 1.3.2
+pr_number: 52
+under_the_hood:
+- title: Staging documentation corrections
+  description: Updates `stg_apple_search_ads.yml` so the documented columns match
+    the columns the staging models output.
+  details:
+  - Renames the documented `status` column to `ad_group_status`, `campaign_status`,
+    and `keyword_status` in the ad group, campaign, and keyword history models to
+    match the aliases the models apply.
+  - Adds the previously undocumented `is_most_recent_record` column to the ad history
+    model.
+  - Removes the documented `ad_format` column from the search term report model, which
+    the model does not output.
+date: '2026-11-12'
