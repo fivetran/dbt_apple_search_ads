@@ -1,4 +1,4 @@
-{{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__apple_search_ads_enabled','apple_search_ads__using_search_terms'])) }}
+{{ config(enabled=(var('ad_reporting__apple_search_ads_enabled', true) and var('apple_search_ads__using_search_terms', true))) }}
 
 {% if var('apple_search_ads_union_schemas', []) | length > 0 or var('apple_search_ads_union_databases', []) | length > 0 %}
 

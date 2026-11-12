@@ -1,4 +1,4 @@
-{{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__apple_search_ads_enabled','apple_search_ads__using_search_terms'])) }}
+{{ config(enabled=(var('ad_reporting__apple_search_ads_enabled', true) and var('apple_search_ads__using_search_terms', true))) }}
 
 with report as (
 
