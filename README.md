@@ -73,7 +73,7 @@ Include the following apple_search_ads package version in your `packages.yml` fi
 ```yaml
 packages:
   - package: fivetran/apple_search_ads
-    version: [">=1.5.0", "<1.6.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.4.0", "<1.5.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 > All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/apple_search_ads_source` in your `packages.yml` since this package has been deprecated.
