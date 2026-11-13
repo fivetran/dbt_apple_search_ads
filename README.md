@@ -15,7 +15,7 @@ This dbt package transforms data from Fivetran's Apple Search Ads connector into
   - [DAG](https://fivetran.github.io/dbt_apple_search_ads/#!/overview?g_v=1)
   - [Changelog](https://github.com/fivetran/dbt_apple_search_ads/blob/main/CHANGELOG.md)
 - dbt Core™ supported versions
-  - `>=1.3.0, <3.0.0`
+  - `>=1.10.0, <3.0.0`
 
 ## What does this dbt package do?
 This package enables you to better understand the performance of your ads across varying grains and materializes output models designed to work simultaneously with our multi-platform Ad Reporting package. It creates enriched models with metrics focused on organization, campaign, ad group, keyword, search term and ad level reports.
@@ -73,7 +73,7 @@ Include the following apple_search_ads package version in your `packages.yml` fi
 ```yaml
 packages:
   - package: fivetran/apple_search_ads
-    version: [">=1.3.0", "<1.4.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.4.0", "<1.5.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 > All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/apple_search_ads_source` in your `packages.yml` since this package has been deprecated.
