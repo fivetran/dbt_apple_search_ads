@@ -3,6 +3,13 @@ version: 2
 models:
   - name: stg_apple_search_ads__ad_group_history
     description: Each record represents a version of an ad group in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - ad_group_id
+              - modified_at
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -31,6 +38,13 @@ models:
 
   - name: stg_apple_search_ads__ad_group_report
     description: Each record represents the daily performance of an ad group in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - ad_group_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -65,6 +79,13 @@ models:
 
   - name: stg_apple_search_ads__ad_history
     description: Each record represents a version of an ad in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - ad_id
+              - modified_at
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -91,6 +112,14 @@ models:
   
   - name: stg_apple_search_ads__ad_report
     description: Each record represents the daily performance of an ad in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - ad_id
+              - date_day
+              - ad_group_id
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -131,6 +160,13 @@ models:
       
   - name: stg_apple_search_ads__campaign_history
     description: Each record represents a version of a campaign in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - campaign_id
+              - modified_at
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -157,6 +193,13 @@ models:
         
   - name: stg_apple_search_ads__campaign_report
     description: Each record represents the daily performance of a campaign in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - campaign_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -192,6 +235,13 @@ models:
 
   - name: stg_apple_search_ads__keyword_history
     description: Each record represents a version of a keyword in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - keyword_id
+              - modified_at
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -222,6 +272,13 @@ models:
 
   - name: stg_apple_search_ads__keyword_report
     description: Each record represents the daily performance of a keyword in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - keyword_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -256,6 +313,12 @@ models:
 
   - name: stg_apple_search_ads__organization
     description: Each record represents an organization in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organization_id
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -274,6 +337,13 @@ models:
 
   - name: stg_apple_search_ads__search_term_report
     description: Each record represents the daily performance of a search term in Apple Search Ads.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - _fivetran_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
