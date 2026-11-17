@@ -4,3 +4,14 @@ new_features:
 - description: Raises the minimum supported dbt version from v1.3.0 to v1.10.0.
 under_the_hood:
 - description: Adds `dbt_utils.unique_combination_of_columns` tests to the staging and end models. The tests use the `arguments` syntax introduced in dbt v1.10.0, the new minimum supported version.
+- title: Staging documentation corrections
+  description: Updates `stg_apple_search_ads.yml` so the documented columns match
+    the columns the staging models output.
+  details:
+  - Renames the documented `status` column to `ad_group_status`, `campaign_status`,
+    and `keyword_status` in the ad group, campaign, and keyword history models to
+    match the aliases the models apply.
+  - Adds the previously undocumented `is_most_recent_record` column to the ad history
+    model.
+  - Removes the documented `ad_format` column from the search term report model, which
+    the model does not output.
