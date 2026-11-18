@@ -1,3 +1,17 @@
+# dbt_apple_search_ads v1.4.0
+
+[PR #54](https://github.com/fivetran/dbt_apple_search_ads/pull/54) includes the following updates:
+
+## Feature Update
+- Raises the minimum dbt version to 1.10.0.
+- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_apple_search_ads/issues/new/choose).
+
+## Under the Hood
+- **Staging documentation corrections**: Updates `stg_apple_search_ads.yml` so the documented columns match the columns the staging models output.
+  - Renames the documented `status` column to `ad_group_status`, `campaign_status`, and `keyword_status` in the ad group, campaign, and keyword history models to match the aliases the models apply.
+  - Adds the previously undocumented `is_most_recent_record` column to the ad history model.
+  - Removes the documented `ad_format` column from the search term report model, which the model does not output.
+
 # dbt_apple_search_ads v1.3.1
 
 [PR #50](https://github.com/fivetran/dbt_apple_search_ads/pull/50) includes the following updates:
