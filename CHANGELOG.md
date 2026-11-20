@@ -1,3 +1,14 @@
+# dbt_apple_search_ads v1.4.0
+
+[PR #54](https://github.com/fivetran/dbt_apple_search_ads/pull/54) includes the following updates:
+
+## Feature Update
+- **Breaking change**: Raises the minimum dbt version to 1.10.0.
+- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_apple_search_ads/issues/new/choose).
+
+## Under the Hood
+- Updates yml column documentation to match model output.
+
 # dbt_apple_search_ads v1.3.1
 
 [PR #50](https://github.com/fivetran/dbt_apple_search_ads/pull/50) includes the following updates:
