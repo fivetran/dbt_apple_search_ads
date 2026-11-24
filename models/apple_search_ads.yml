@@ -3,6 +3,15 @@ version: 2
 models:
   - name: apple_search_ads__ad_group_report
     description: Each record represents the daily ad performance of each ad group.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organization_id
+              - campaign_id
+              - ad_group_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -16,7 +25,7 @@ models:
         description: Campaign name associated with this record.
       - name: ad_group_id
         description: Ad group ID associated with this record.
-        tests:
+        data_tests:
           - not_null
       - name: ad_group_name
         description: Ad group name associated with this record.
@@ -28,7 +37,7 @@ models:
         description: The end timestamp for this ad group.
       - name: date_day
         description: Date of the report.
-        tests:
+        data_tests:
           - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
@@ -57,6 +66,16 @@ models:
 
   - name: apple_search_ads__ad_report
     description: Each record represents the daily ad performance of each ad.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organization_id
+              - campaign_id
+              - ad_group_id
+              - ad_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -74,7 +93,7 @@ models:
         description: Ad group name associated with this record.
       - name: ad_id
         description: Ad ID associated with this record.
-        tests:
+        data_tests:
           - not_null
       - name: ad_name
         description: Ad name associated with this record.
@@ -82,7 +101,7 @@ models:
         description: The status of the ad associated with this record.
       - name: date_day
         description: Date of the report.
-        tests:
+        data_tests:
           - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
@@ -111,6 +130,14 @@ models:
 
   - name: apple_search_ads__campaign_report
     description: Each record represents the daily ad performance of each campaign.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organization_id
+              - campaign_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -120,7 +147,7 @@ models:
         description: Organization name associated with this record.
       - name: campaign_id
         description: Campaign ID associated with this record.
-        tests:
+        data_tests:
           - not_null
       - name: campaign_name 
         description: Campaign name associated with this record.
@@ -132,7 +159,7 @@ models:
         description: The end timestamp of this campaign.
       - name: date_day
         description: Date of the report.
-        tests:
+        data_tests:
           - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
@@ -161,6 +188,16 @@ models:
         
   - name: apple_search_ads__keyword_report
     description: Each record represents the daily ad performance of each creative set.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organization_id
+              - campaign_id
+              - ad_group_id
+              - keyword_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -178,7 +215,7 @@ models:
         description: Ad group name associated with this record.
       - name: keyword_id
         description: Creative set name associatd with this record.
-        tests:
+        data_tests:
           - not_null
       - name: keyword_text
         description: Creative set ID associated with this record.
@@ -186,7 +223,7 @@ models:
         description: Controls how ads are matched to user searches; EXACT or BROAD.
       - name: date_day
         description: Date of the report.
-        tests:
+        data_tests:
           - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
@@ -217,18 +254,25 @@ models:
 
   - name: apple_search_ads__organization_report
     description: Each record represents the daily ad performance of each organization.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organization_id
+              - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
       - name: organization_id
         description: Organization ID associated with this record.
-        tests:
+        data_tests:
           - not_null
       - name: organization_name
         description: Organization name associated with this record.
       - name: date_day
         description: Date of the report.
-        tests:
+        data_tests:
           - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
@@ -257,6 +301,18 @@ models:
   
   - name: apple_search_ads__search_term_report
     description: Each record represents the daily ad performance of each search term, only includes records with search term values.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - search_term_text
+              - match_type
+              - date_day
+              - keyword_id
+              - ad_group_id
+              - campaign_id
+              - organization_id
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -276,11 +332,11 @@ models:
         description: Controls how ads are matched to user searches; EXACT or BROAD.
       - name: date_day
         description: Date of the report.
-        tests:
+        data_tests:
           - not_null
       - name: search_term_text
         description: Search term text.
-        tests:
+        data_tests:
           - not_null
       - name: currency
         description: This currency value should match the respective organization's currency value.
